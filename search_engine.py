@@ -3,6 +3,10 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 from document_store import DocumentStore, Document
 
 
@@ -83,9 +87,6 @@ class SearchEngine:
         if self._tfidf_matrix is None or sorted(self._tfidf_doc_ids) != current_ids:
             self._build_tfidf(docs)
 
-        from sklearn.metrics.pairwise import cosine_similarity
-        import numpy as np
-
         query_vec = self._tfidf_vectorizer.transform([query])
         scores = cosine_similarity(query_vec, self._tfidf_matrix).flatten()
 
@@ -153,8 +154,6 @@ class SearchEngine:
     # ------------------------------------------------------------------ #
 
     def _build_tfidf(self, docs: list[Document]) -> None:
-        from sklearn.feature_extraction.text import TfidfVectorizer
-
         self._tfidf_vectorizer = TfidfVectorizer(
             max_features=10000,
             stop_words="english",

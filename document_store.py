@@ -92,10 +92,15 @@ class DocumentStore:
         self._index_file.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     def _load(self) -> None:
+        import sys
         if not self._index_file.exists():
+            self._docs = {}
             return
         try:
             data = json.loads(self._index_file.read_text(encoding="utf-8"))
             self._docs = {doc_id: Document(**doc_data) for doc_id, doc_data in data.items()}
-        except Exception:
+        except json.JSONDecodeError as e:
+            print(f"Warning: corrupted store file, starting fresh: {e}", file=sys.stderr)
             self._docs = {}
+        except FileNotFoundError:
+            self._docs = {}  # nowy store, OK

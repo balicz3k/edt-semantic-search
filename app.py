@@ -305,7 +305,7 @@ with tab3:
 
                 # Podgląd dokumentu z podświetleniem
                 with st.expander("📖 Podgląd dokumentu z podświetlonymi encjami", expanded=False):
-                    highlighted = ner_engine.highlight_text(selected_doc.content[:5000])
+                    highlighted = ner_engine.highlight_text(selected_doc.content[:5000], entities=entities)
                     st.markdown(
                         f'<div style="line-height:1.8;white-space:pre-wrap;font-family:sans-serif;">'
                         f'{highlighted}</div>',

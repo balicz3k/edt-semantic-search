@@ -1,23 +1,29 @@
-The Rise of Artificial Intelligence: Transforming Industries and Society
+notatki z wykładu: sieci neuronowe i uczenie maszynowe
 
-Artificial intelligence has rapidly evolved from a niche academic discipline into one of the most transformative technologies of the 21st century. Companies like Google, Microsoft, and OpenAI have invested billions of dollars in developing large language models and machine learning systems that are reshaping how we work, communicate, and solve complex problems.
+na wstepie pan doktor mowil ze deep learning to tak naprawde wielowarstwowe sieci, ale te wielowarstwowe to moze byc 3 warstwy albo 300, nikt nie powie gdzie granica lol
 
-In November 2022, OpenAI released ChatGPT, a conversational AI system that attracted over 100 million users within two months of launch — the fastest adoption of any consumer technology in history. Sam Altman, the CEO of OpenAI, described the release as "a new chapter in human-computer interaction." Microsoft subsequently invested $10 billion in OpenAI in January 2023, deepening the partnership that began in 2019.
+podstawowe pojecia:
+- warstwa wejsciowa, ukryta (hidden layer), wyjsciowa
+- aktywacja: relu, sigmoid, tanh — relu jest najczesciej bo nie ma problemu z zanikajacym gradientem
+- backpropagation - algorytm ktory liczy gradienty i aktualizuje wagi, chodzi po sieci od tylu
 
-Google responded with its own AI assistant, Gemini, formerly known as Bard, which was unveiled by Sundar Pichai at a press event in Paris, France in February 2023. The competition between Silicon Valley giants has accelerated AI development at an unprecedented pace.
+pytorch vs tensorflow: na zajeciach uzywamy pytorch, bo pan doktor mowi ze kod jest bardziej pythonik i latwiej debugowac. Tensorflow ma Keras co jest proste na poczatek ale jak chcesz cos niestandardowego to robi sie skomplikowane
 
-The headquarters of major AI labs are concentrated in San Francisco, California, particularly in the neighborhoods of South of Market and Mission District. DeepMind, a subsidiary of Alphabet Inc., operates primarily from London, United Kingdom, where it was originally founded in 2010 by Demis Hassabis, Shane Legg, and Mustafa Suleyman before being acquired by Google in 2014 for approximately $500 million.
+przykad prostej sieci w pytorch:
+  model = nn.Sequential(
+      nn.Linear(784, 128),
+      nn.ReLU(),
+      nn.Linear(128, 10)
+  )
+  
+to jest do klasyfikacji cyfr MNIST, 784 to 28x28 pikseli, 10 klas (0-9)
 
-Meta Platforms, led by Mark Zuckerberg, launched LLaMA — a family of open-source large language models — in February 2023. The models were released to researchers at universities and organizations, and later open-sourced more broadly. Meta's AI Research lab, known as FAIR (Fundamental AI Research), operates from Menlo Park, California and New York City.
+UWAGA: nie zapomniec o normalizacji danych! jezeli nie znormalizujesz to siec sie nie uczy albo bardzo wolno. transformacje: (x - mean) / std
 
-The European Union passed the EU AI Act in March 2024, the world's first comprehensive regulatory framework for artificial intelligence. Thierry Breton, the EU Commissioner for Internal Market, championed the legislation in Brussels, Belgium. The act classifies AI systems by risk levels and imposes strict requirements on high-risk applications in sectors such as healthcare, education, and law enforcement.
+pytanie na egzamin wedlug studenta z roku wyzej: co to jest overfitting i jak zapobiegac — odpowiedz: dropout, regularyzacja L2, wiecej danych, early stopping
 
-Nvidia Corporation, headquartered in Santa Clara, California, became the most valuable company in the world briefly in June 2024, surpassing Microsoft and Apple. Jensen Huang, the co-founder and CEO of Nvidia, has seen his company's market capitalization exceed $3 trillion due to the insatiable demand for GPUs used to train AI models.
+Google Colab daje darmowe GPU (Tesla T4), wystarczy do cwiczen. Ale limit czasu sesji to ok 12h i jak zamkniesz przegldarke to moze sie rozlaczyc, zapisuj checkpointy!
 
-In Asia, China has emerged as a formidable AI power. Baidu, often called "the Google of China," launched ERNIE Bot in March 2023. Alibaba Group unveiled Tongyi Qianwen, while Huawei Technologies has invested heavily in AI chips to reduce dependence on American suppliers following US export restrictions imposed in October 2022.
+transformery: architektura z pracy Attention is All You Need (Vaswani i in., 2017). Uwaga (attention) to mechanizm ktory pozwala modelowi patrzec na wszystkie pozycje w sekwencji naraz zamiast po kolei jak RNN. BERT, GPT to wszystko transformery.
 
-The World Economic Forum, based in Davos, Switzerland, estimated in January 2024 that AI could automate 25% of jobs globally by 2027, while simultaneously creating millions of new roles in AI development, data science, and human-AI collaboration. McKinsey & Company published a report suggesting that generative AI could add between $2.6 trillion and $4.4 trillion to the global economy annually.
-
-Geoffrey Hinton, often referred to as the "Godfather of AI," left Google in May 2023 to speak freely about the potential risks of artificial intelligence. Hinton, along with Yann LeCun of Meta and Yoshua Bengio of the University of Montreal, shared the 2018 Turing Award — computing's highest honor — for their foundational work on deep learning neural networks.
-
-The Massachusetts Institute of Technology (MIT) in Cambridge, Massachusetts, and Stanford University in Stanford, California, remain leading research institutions in AI. The Alan Turing Institute in London and the RIKEN Center for Advanced Intelligence Project in Tokyo, Japan, are also significant players in global AI research.
+batchsize: zazwyczaj 32 lub 64, wieksza wartosc szybciej trenuje ale potrzeba wiecej pamieci GPU. jak dostaniesz CUDA out of memory to zmniejsz batch.
