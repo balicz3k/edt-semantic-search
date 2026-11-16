@@ -53,7 +53,9 @@ Testy i notatnik:
 
 ```bash
 pytest -q
-jupyter notebook notebooks/01_porownanie_metod.ipynb
+jupyter notebook notebooks/01_porownanie_metod.ipynb   # zapisuje też tabele do results/
+python scripts/make_figures.py                         # wykresy do prezentacji (docs/img/)
+cd docs && latexmk -pdf prezentacja.tex                # slajdy (Beamer)
 ```
 
 ## Struktura
@@ -65,7 +67,8 @@ nlp_pl.py               spaCy PL: lematy, stopwords, encje, podział na fragment
 search_engine.py        słowa kluczowe, TF-IDF, semantyczne, snippety, filtr dokumentów
 ranking_compare.py      tabela pozycji, Spearman, Kendall tau, Jaccard@k
 ner_engine.py           wyróżnianie encji, wyszukiwanie encji, najczęstsze encje
-scripts/                download_corpus.py, build_index.py
+scripts/                download_corpus.py, build_index.py, make_figures.py
+results/                tabele z notatnika (MRR, korelacje rang)
 notebooks/01_porownanie_metod.ipynb   13 zapytań testowych, MRR, korelacje rang
 storage/                baza tworzona przez aplikację (poza gitem)
 docs/NAUKA.md           opis "po ludzku" + pytania na prezentację
