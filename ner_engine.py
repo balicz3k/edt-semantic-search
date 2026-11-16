@@ -57,6 +57,9 @@ def top_entities(table: pd.DataFrame, labels, n: int = 10) -> pd.DataFrame:
     """Najczęstsze encje danego typu (grupowane po lemacie, żeby 'Krakowa' i
     'Kraków' liczyły się razem). Liczę wystąpienia i liczbę dokumentów."""
     part = table[table["label"].isin(labels)]
+    # model NKJP oznacza też przymiotniki ("polski", "niemiecki") jako nazwy miejsc;
+    # w panelu zostawiam tylko nazwy pisane wielką literą
+    part = part[part["encja"].str[:1].str.isupper()]
     if part.empty:
         return pd.DataFrame(columns=["encja", "wystąpienia", "dokumenty"])
     grouped = part.groupby("lemat").agg(
