@@ -1,381 +1,276 @@
-"""Streamlit app — System wyszukiwania semantycznego i ekstrakcji wiedzy (NER)."""
-import streamlit as st
+"""System wyszukiwania semantycznego i ekstrakcji wiedzy - GUI w Streamlit.
+
+Uruchomienie: streamlit run app.py
+"""
 from pathlib import Path
-import tempfile
-import os
 
-st.set_page_config(
-    page_title="Semantic Search & NER",
-    page_icon="🔍",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
+import altair as alt
+import pandas as pd
+import streamlit as st
 
-# ------------------------------------------------------------------ #
-# CSS                                                                  #
-# ------------------------------------------------------------------ #
-st.markdown(
-    """
-    <style>
-    .search-result-card {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 10px;
-        background: #fafafa;
-    }
-    .score-badge {
-        display: inline-block;
-        background: #0066cc;
-        color: white;
-        border-radius: 12px;
-        padding: 2px 10px;
-        font-size: 0.8em;
-        font-weight: bold;
-    }
-    .entity-chip {
-        display: inline-block;
-        border-radius: 4px;
-        padding: 2px 8px;
-        margin: 2px;
-        font-size: 0.85em;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+import ner_engine as ner
+from document_store import DocumentStore
+from nlp_pl import LABELS, LOCATION_LABELS
+from ranking_compare import pairwise_stats, positions_table
+from search_engine import SearchEngine, embed
 
-# ------------------------------------------------------------------ #
-# Inicjalizacja                                                        #
-# ------------------------------------------------------------------ #
+ROOT = Path(__file__).resolve().parent
+SAMPLE_DIR = ROOT / "sample_docs"
+METHODS = ["Słowa kluczowe", "TF-IDF", "Semantyczne"]
+METHOD_INFO = {
+    "Słowa kluczowe": "dokładne słowa/frazy w cudzysłowie, ranking: liczba dopasowanych słów, potem wystąpień",
+    "TF-IDF": "lematy + stopwords PL, podobieństwo cosinusowe wektorów TF-IDF",
+    "Semantyczne": "embeddingi fragmentów (paraphrase-multilingual-MiniLM-L12-v2), max cosinus",
+}
+
+st.set_page_config(page_title="Wyszukiwanie semantyczne i NER", layout="wide")
+
 
 @st.cache_resource
-def get_document_store():
-    from document_store import DocumentStore
-    return DocumentStore()
+def get_store():
+    return DocumentStore(ROOT / "storage")
+
 
 @st.cache_resource
-def get_search_engine(_store):
-    from search_engine import SearchEngine
+def get_engine(_store):
     return SearchEngine(_store)
 
-@st.cache_resource
-def get_ner_engine():
-    from ner_engine import NEREngine
-    engine = NEREngine()
-    return engine
 
-store = get_document_store()
-search_engine = get_search_engine(store)
-ner_engine = get_ner_engine()
-
-# ------------------------------------------------------------------ #
-# Tabs                                                                 #
-# ------------------------------------------------------------------ #
-tab1, tab2, tab3 = st.tabs(["📚 Baza dokumentów", "🔍 Wyszukiwarka", "🏷️ Encje NER"])
+store = get_store()
+engine = get_engine(store)
+if store.load_error:
+    st.error(store.load_error)
 
 
-# ================================================================== #
-# TAB 1 — Baza dokumentów                                            #
-# ================================================================== #
-with tab1:
-    st.title("📚 Baza dokumentów")
-    st.caption("Dodawaj pliki TXT i PDF, przeglądaj i usuwaj dokumenty.")
+def entity_table():
+    # tabela encji zależy od zawartości bazy - odświeżam ją po każdej zmianie
+    key = tuple(sorted(store.docs))
+    if st.session_state.get("ent_key") != key:
+        st.session_state["ent_table"] = ner.entities_table(store)
+        st.session_state["ent_key"] = key
+    return st.session_state["ent_table"]
 
-    col_upload, col_list = st.columns([1, 2])
 
-    with col_upload:
-        st.subheader("Dodaj dokument")
-        uploaded_file = st.file_uploader(
-            "Wybierz plik TXT lub PDF",
-            type=["txt", "pdf"],
-            key="uploader",
-        )
-        if uploaded_file is not None:
-            if st.button("➕ Dodaj do bazy", use_container_width=True):
-                suffix = Path(uploaded_file.name).suffix
-                with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
-                    tmp.write(uploaded_file.getvalue())
-                    tmp_path = tmp.name
-                try:
-                    doc = store.add_document(tmp_path)
-                    # Zmień nazwę na oryginalną
-                    doc.name = uploaded_file.name
-                    store._save()
-                    search_engine.reindex()
-                    st.success(f"✅ Dodano: **{uploaded_file.name}** ({doc.char_count:,} znaków)")
-                    st.rerun()
-                except Exception as e:
-                    st.error(f"Błąd: {e}")
-                finally:
-                    os.unlink(tmp_path)
+def add_files(files: list[tuple[str, bytes]]):
+    bar = st.progress(0.0, text="Przetwarzanie dokumentów...")
+    for i, (name, data) in enumerate(files, 1):
+        if store.has_name(name):
+            st.info(f"Pominięto {name} - dokument o tej nazwie już jest w bazie.")
+            continue
+        try:
+            store.add(name, data, embed)
+        except ValueError as e:
+            st.warning(f"{name}: {e}")
+        bar.progress(i / len(files), text=f"{i}/{len(files)}: {name}")
+    bar.empty()
 
-        st.divider()
-        st.subheader("Załaduj przykładowe dokumenty")
-        sample_dir = Path("sample_docs")
-        if sample_dir.exists():
-            sample_files = list(sample_dir.glob("*.txt")) + list(sample_dir.glob("*.pdf"))
-            if sample_files:
-                if st.button("📂 Załaduj wszystkie przykłady", use_container_width=True):
-                    added = 0
-                    already = 0
-                    errors = 0
-                    existing_names = {d.name for d in store.get_all()}
-                    for sf in sample_files:
-                        if sf.name in existing_names:
-                            already += 1
-                            continue
-                        try:
-                            store.add_document(sf)
-                            added += 1
-                        except Exception:
-                            errors += 1
-                    if added:
-                        search_engine.reindex()
-                        st.success(f"Dodano {added} dokument(ów). Pominiętych (już w bazie): {already}.")
-                        st.rerun()
-                    else:
-                        st.info(f"Wszystkie przykładowe dokumenty są już w bazie ({already}).")
 
-    with col_list:
+def show_document(doc, max_chars=None):
+    meta = {
+        "nazwa": doc.name, "typ pliku": doc.file_type, "rozmiar [KB]": round(doc.size_bytes / 1024, 1),
+        "dodano": doc.added_at.replace("T", " "), "język": doc.language,
+        "znaki": doc.char_count, "słowa": doc.word_count, "fragmenty": len(doc.chunks),
+        "encje": doc.entity_count,
+    }
+    st.dataframe(pd.DataFrame([meta]), hide_index=True)
+    if doc.language != "pl":
+        st.warning("Dokument nie wygląda na polski - lematyzacja, stopwords i NER są "
+                   "ustawione dla języka polskiego, więc wyniki mogą być słabe.")
+    counts = pd.Series([LABELS[e["label"]] for e in doc.entities]).value_counts()
+    st.caption("Encje w dokumencie: " + ", ".join(f"{k}: {v}" for k, v in counts.items()))
+    with st.container(height=450):
+        st.markdown(f'<div style="line-height:1.7;white-space:pre-wrap">'
+                    f'{ner.highlight_html(doc, max_chars)}</div>', unsafe_allow_html=True)
+    path = store.file_path(doc.id)
+    st.download_button("Pobierz oryginalny plik", path.read_bytes(), file_name=doc.name,
+                       key=f"dl_{doc.id}_{max_chars}")
+
+
+@st.dialog("Podgląd dokumentu", width="large")
+def open_dialog(doc_id):
+    show_document(store.get(doc_id))
+
+
+# --- widok 1 --------------------------------------------------------------------
+def view_documents():
+    left, right = st.columns([1, 2])
+    with left:
+        st.subheader("Dodaj dokumenty")
+        uploaded = st.file_uploader("Pliki TXT lub PDF", type=["txt", "pdf"],
+                                    accept_multiple_files=True)
+        if uploaded and st.button("Dodaj do bazy", type="primary"):
+            add_files([(f.name, f.getvalue()) for f in uploaded])
+            st.rerun()
+        samples = sorted(p for p in SAMPLE_DIR.glob("*") if p.suffix in (".txt", ".pdf"))
+        st.caption(f"Przykładowy korpus: {len(samples)} artykułów z polskiej Wikipedii "
+                   "(lista w sample_docs/SOURCES.md).")
+        if samples and st.button("Załaduj przykładowe dokumenty"):
+            add_files([(p.name, p.read_bytes()) for p in samples])
+            st.rerun()
+        st.caption("Przy dodawaniu dokument jest od razu czytany, lematyzowany, dzielony "
+                   "na fragmenty, a encje i embeddingi zapisywane w bazie.")
+
+    with right:
         docs = store.get_all()
-        st.subheader(f"Dokumenty w bazie ({len(docs)})")
-
+        st.subheader(f"Dokumenty w bazie: {len(docs)}")
         if not docs:
-            st.info("Baza jest pusta. Dodaj dokumenty za pomocą formularza po lewej.")
-        else:
-            for doc in sorted(docs, key=lambda d: d.added_at, reverse=True):
-                with st.expander(f"📄 {doc.name}  —  {doc.char_count:,} znaków"):
-                    st.caption(f"ID: `{doc.id}` | Dodano: {doc.added_at[:19].replace('T', ' ')}")
-                    st.text_area(
-                        "Podgląd treści (pierwsze 500 znaków)",
-                        value=doc.content[:500],
-                        height=120,
-                        disabled=True,
-                        key=f"preview_{doc.id}",
-                    )
-                    if st.button(f"🗑️ Usuń {doc.name}", key=f"del_{doc.id}"):
-                        store.remove_document(doc.id)
-                        search_engine.reindex()
-                        st.success(f"Usunięto: {doc.name}")
-                        st.rerun()
+            st.info("Baza jest pusta - dodaj pliki albo załaduj przykładowe dokumenty.")
+            return
+        table = pd.DataFrame([{
+            "nazwa": d.name, "typ": d.file_type, "słowa": d.word_count,
+            "język": d.language, "encje": d.entity_count, "dodano": d.added_at[:16].replace("T", " "),
+        } for d in docs])
+        st.dataframe(table, hide_index=True, height=260)
+        names = {d.name: d.id for d in docs}
+        chosen = st.selectbox("Szczegóły dokumentu", list(names))
+        doc = store.get(names[chosen])
+        show_document(doc)
+        if st.button(f"Usuń dokument {doc.name}"):
+            store.remove(doc.id)
+            st.rerun()
 
 
-# ================================================================== #
-# TAB 2 — Wyszukiwarka                                               #
-# ================================================================== #
-with tab2:
-    st.title("🔍 Wyszukiwarka dokumentów")
-    st.caption("Porównaj trzy metody wyszukiwania dla tego samego zapytania.")
-
-    docs_count = len(store.get_all())
-    if docs_count == 0:
-        st.warning("Baza dokumentów jest pusta. Przejdź do zakładki **📚 Baza dokumentów** i dodaj pliki.")
-    else:
-        query = st.text_input(
-            "Wpisz zapytanie:",
-            placeholder="np. artificial intelligence, World War II, climate change...",
-            key="search_query",
-        )
-        top_k = st.slider("Liczba wyników", min_value=1, max_value=min(10, docs_count), value=min(5, docs_count))
-
-        if query and query.strip():
-            with st.spinner("Szukam..."):
-                kw_results = search_engine.keyword_search(query.strip(), top_k=top_k)
-                tfidf_results = search_engine.tfidf_search(query.strip(), top_k=top_k)
-                sem_results = search_engine.semantic_search(query.strip(), top_k=top_k)
-
-            col1, col2, col3 = st.columns(3)
-
-            def render_results(results, label):
-                if not results:
-                    st.info("Brak wyników.")
-                    return
-                for rank, r in enumerate(results, 1):
-                    with st.container():
-                        st.markdown(
-                            f'<div class="search-result-card">'
-                            f'<b>#{rank} {r.doc_name}</b> '
-                            f'<span class="score-badge">{r.score:.4f}</span><br>'
-                            f'<small>{r.snippet}</small>'
-                            f'</div>',
-                            unsafe_allow_html=True,
-                        )
-
-            with col1:
-                st.subheader("🔑 Słowa kluczowe")
-                st.caption("Zliczanie wystąpień słów (znormalizowane)")
-                render_results(kw_results, "keyword")
-
-            with col2:
-                st.subheader("📊 TF-IDF")
-                st.caption("Podobieństwo kosinusowe wektorów TF-IDF")
-                render_results(tfidf_results, "tfidf")
-
-            with col3:
-                st.subheader("🧠 Semantyczne")
-                st.caption("Sentence-BERT (all-MiniLM-L6-v2) + ChromaDB")
-                render_results(sem_results, "semantic")
-
-            # Porównanie kolejności
-            if kw_results or tfidf_results or sem_results:
-                st.divider()
-                st.subheader("📈 Porównanie rankingów")
-                all_doc_names = sorted(
-                    set(r.doc_name for r in kw_results + tfidf_results + sem_results)
-                )
-                kw_rank = {r.doc_name: i + 1 for i, r in enumerate(kw_results)}
-                tfidf_rank = {r.doc_name: i + 1 for i, r in enumerate(tfidf_results)}
-                sem_rank = {r.doc_name: i + 1 for i, r in enumerate(sem_results)}
-
-                import pandas as pd
-                comparison_data = []
-                for name in all_doc_names:
-                    comparison_data.append({
-                        "Dokument": name,
-                        "Słowa kluczowe": kw_rank.get(name, "—"),
-                        "TF-IDF": tfidf_rank.get(name, "—"),
-                        "Semantyczne": sem_rank.get(name, "—"),
-                    })
-                st.dataframe(pd.DataFrame(comparison_data), use_container_width=True, hide_index=True)
+# --- widok 2 --------------------------------------------------------------------
+def entity_filter_ui(key: str):
+    """Zwraca zbiór dozwolonych id dokumentów albo None (bez filtra)."""
+    c1, c2 = st.columns(2)
+    label_name = c1.selectbox("Ogranicz do dokumentów z encją typu",
+                              ["(bez filtra)"] + list(LABELS.values()), key=f"{key}_type")
+    ent_query = c2.text_input("...lub z konkretną encją (np. Kraków, Kopernik)", key=f"{key}_ent")
+    label = {v: k for k, v in LABELS.items()}.get(label_name)
+    if label is None and not ent_query.strip():
+        return None
+    allowed = ner.docs_with_entity(entity_table(), ent_query, label)
+    st.caption(f"Filtr encji: wyszukiwanie tylko w {len(allowed)} z {len(store.docs)} dokumentów.")
+    return allowed
 
 
-# ================================================================== #
-# TAB 3 — Encje NER                                                  #
-# ================================================================== #
-with tab3:
-    st.title("🏷️ Ekstrakcja encji nazwanych (NER)")
-    st.caption("Wykrywanie osób, organizacji, lokalizacji, dat i innych encji za pomocą modelu spacy.")
+def view_search():
+    if not store.docs:
+        st.info("Baza jest pusta - najpierw dodaj dokumenty.")
+        return
+    query = st.text_input("Zapytanie", placeholder='np. odkrycia astronomiczne, "unia lubelska", '
+                                                   "zwycięstwo nad zakonem krzyżackim")
+    k = st.slider("Liczba wyników na metodę (top-k)", 3, 10, 5)
+    allowed = entity_filter_ui("search")
+    if not query.strip():
+        st.caption("Przykłady: 'skoki narciarskie', 'Krzyżacy', 'promieniotwórczość', "
+                   "'stolica Polski', 'język programowania', 'gwiazdy i planety'.")
+        return
+    with st.spinner("Szukam..."):
+        results = engine.search_all(query, k, allowed)
 
+    cols = st.columns(3)
+    for col, method in zip(cols, METHODS):
+        with col:
+            st.markdown(f"**{method}**")
+            st.caption(METHOD_INFO[method])
+            if not results[method]:
+                st.info("Brak wyników.")
+            for rank, r in enumerate(results[method], 1):
+                with st.container(border=True):
+                    st.markdown(f"**{rank}. {r.doc_name}**  \nwynik: `{r.score}` - {r.details}")
+                    st.markdown(f"<small>{r.snippet}</small>", unsafe_allow_html=True)
+                    if st.button("Otwórz", key=f"open_{method}_{rank}"):
+                        open_dialog(r.doc_id)
+
+    st.subheader("Porównanie rankingów")
+    rankings = {m: [r.doc_id for r in results[m]] for m in METHODS}
+    names = {d.id: d.name for d in store.get_all()}
+    table = positions_table(rankings, names, k)
+    if table.empty:
+        return
+    st.caption(f"Pozycja dokumentu w każdej metodzie (puste = poza top-{k}). Rozrzut to różnica "
+               f"między najlepszą a najgorszą pozycją (brak w top-k liczony jako {k + 1}); "
+               "wiersze z rozrzutem co najmniej 2 są zaznaczone.")
+    styled = table.style.apply(
+        lambda row: ["background-color: #ffe5b4" if row["rozrzut"] >= 2 else ""] * len(row),
+        axis=1).format({m: "{:.0f}" for m in METHODS}, na_rep="-")
+    st.dataframe(styled, hide_index=True)
+    stats = pairwise_stats(rankings, k)
+    st.caption("Korelacje rang liczone na sumie dokumentów z top-k wszystkich metod "
+               "(1 = ta sama kolejność, 0 = brak związku, -1 = odwrotna). Jaccard@k = część "
+               "wspólna zbiorów top-k.")
+    st.dataframe(stats.style.format(precision=3, na_rep="nieokreślona"), hide_index=True)
+
+
+# --- widok 3 --------------------------------------------------------------------
+def view_entities():
+    if not store.docs:
+        st.info("Baza jest pusta - najpierw dodaj dokumenty.")
+        return
+    table = entity_table()
+    st.subheader("Wyszukiwanie encji")
+    c1, c2 = st.columns(2)
+    q = c1.text_input("Encja (dowolna forma, np. 'Krakowie', 'Kopernika')")
+    label_name = c2.selectbox("Typ encji", ["(wszystkie)"] + list(LABELS.values()))
+    label = {v: k for k, v in LABELS.items()}.get(label_name)
+    if q.strip() or label:
+        found = ner.match_entities(table, q, label)
+        st.write(f"Wystąpienia: {len(found)}, dokumenty: {found['doc_id'].nunique()}")
+        summary = found.groupby(["encja", "typ"]).size().rename("wystąpienia") \
+            .sort_values(ascending=False).reset_index()
+        st.dataframe(summary.head(50), hide_index=True, height=220)
+        for doc_id, part in found.groupby("doc_id", sort=False):
+            doc = store.get(doc_id)
+            with st.expander(f"{doc.name} - {len(part)} wystąpień"):
+                for idx in part["idx"].head(8):
+                    ent = doc.entities[idx]
+                    st.markdown(f"[{ner.label_name(ent['label'])}] {ner.context(doc, ent)}",
+                                unsafe_allow_html=True)
+                if st.button("Otwórz dokument", key=f"ent_open_{doc_id}"):
+                    open_dialog(doc_id)
+
+    st.subheader("Najczęstsze encje w bazie")
+    cols = st.columns(3)
+    groups = (("Osoby", ["persName"]), ("Organizacje", ["orgName"]),
+              ("Lokalizacje", list(LOCATION_LABELS)))
+    for col, (title, labels) in zip(cols, groups):
+        col.markdown(f"**{title}**")
+        col.dataframe(ner.top_entities(table, labels, 10), hide_index=True)
+
+
+# --- widok 4: statystyki -------------------------------------------------------
+def view_stats():
     docs = store.get_all()
     if not docs:
-        st.warning("Baza dokumentów jest pusta. Przejdź do zakładki **📚 Baza dokumentów** i dodaj pliki.")
-    else:
-        # Załaduj model NER
-        if not ner_engine.is_loaded():
-            with st.spinner("Ładowanie modelu NER (spacy)..."):
-                try:
-                    ner_engine.load()
-                    st.success("Model NER załadowany.")
-                except RuntimeError as e:
-                    st.error(str(e))
-                    st.stop()
+        st.info("Baza jest pusta.")
+        return
+    table = entity_table()
+    words = pd.Series({d.name: d.word_count for d in docs})
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Dokumenty", len(docs))
+    c2.metric("Słowa łącznie", f"{words.sum():,}".replace(",", " "))
+    c3.metric("Średnia długość [słowa]", int(words.mean()))
+    c4.metric("Encje (wystąpienia)", len(table))
 
-        # Wybór dokumentu do analizy
-        col_left, col_right = st.columns([1, 2])
+    left, right = st.columns(2)
+    with left:
+        st.markdown("**Rozkład długości dokumentów**")
+        hist = alt.Chart(pd.DataFrame({"słowa": words.values})).mark_bar().encode(
+            x=alt.X("słowa:Q", bin=alt.Bin(step=500), title="liczba słów"),
+            y=alt.Y("count()", title="liczba dokumentów"))
+        st.altair_chart(hist, use_container_width=True)
+        st.markdown("**Rozkład typów encji**")
+        types = table["typ"].value_counts().rename_axis("typ").reset_index(name="liczba")
+        st.altair_chart(alt.Chart(types).mark_bar().encode(
+            x=alt.X("liczba:Q"), y=alt.Y("typ:N", sort="-x", title=None)), use_container_width=True)
+    with right:
+        st.markdown("**Najczęstsze terminy (lematy bez stopwords)**")
+        terms = pd.DataFrame(engine.top_terms(25), columns=["termin", "liczba"])
+        st.altair_chart(alt.Chart(terms).mark_bar().encode(
+            x=alt.X("liczba:Q"), y=alt.Y("termin:N", sort="-x", title=None, axis=alt.Axis(labelOverlap=False))
+        ).properties(height=600),
+            use_container_width=True)
 
-        with col_left:
-            st.subheader("Ustawienia")
-            doc_options = {d.name: d for d in docs}
-            selected_doc_name = st.selectbox("Wybierz dokument", list(doc_options.keys()))
-            selected_doc = doc_options[selected_doc_name]
 
-            # Filtrowanie po typie encji
-            from ner_engine import LABEL_NAMES
-            all_labels = ["Wszystkie"] + list(LABEL_NAMES.keys())
-            selected_label = st.selectbox("Filtruj po typie encji", all_labels)
-
-            # Wyszukiwanie encji
-            entity_search = st.text_input("Szukaj encji (tekst):", placeholder="np. Google, 2023, London")
-
-            analyze_btn = st.button("🔎 Analizuj dokument", use_container_width=True, type="primary")
-
-        with col_right:
-            if analyze_btn or ("ner_entities" in st.session_state and st.session_state.get("ner_doc_id") == selected_doc.id):
-                if analyze_btn:
-                    with st.spinner("Analizuję encje..."):
-                        entities = ner_engine.extract_entities(
-                            selected_doc.content, selected_doc.id, selected_doc.name
-                        )
-                    st.session_state["ner_entities"] = entities
-                    st.session_state["ner_doc_id"] = selected_doc.id
-                else:
-                    entities = st.session_state.get("ner_entities", [])
-
-                entities = st.session_state.get("ner_entities", [])
-
-                # Filtrowanie
-                filtered = entities
-                if selected_label != "Wszystkie":
-                    filtered = [e for e in filtered if e.label == selected_label]
-                if entity_search.strip():
-                    filtered = [e for e in filtered if entity_search.lower() in e.text.lower()]
-
-                st.subheader(f"Znalezione encje: {len(filtered)} (z {len(entities)} łącznie)")
-
-                # Podgląd dokumentu z podświetleniem
-                with st.expander("📖 Podgląd dokumentu z podświetlonymi encjami", expanded=False):
-                    highlighted = ner_engine.highlight_text(selected_doc.content[:5000], entities=entities)
-                    st.markdown(
-                        f'<div style="line-height:1.8;white-space:pre-wrap;font-family:sans-serif;">'
-                        f'{highlighted}</div>',
-                        unsafe_allow_html=True,
-                    )
-                    if len(selected_doc.content) > 5000:
-                        st.caption(f"(Pokazano pierwsze 5000 znaków z {len(selected_doc.content):,})")
-
-                # Legenda
-                st.subheader("Legenda typów encji")
-                from ner_engine import ENTITY_COLORS
-                legend_cols = st.columns(4)
-                label_counts = {}
-                for e in entities:
-                    label_counts[e.label] = label_counts.get(e.label, 0) + 1
-
-                for i, (label, count) in enumerate(sorted(label_counts.items(), key=lambda x: -x[1])):
-                    color = ENTITY_COLORS.get(label, "#e8e8e8")
-                    display_name = LABEL_NAMES.get(label, label)
-                    legend_cols[i % 4].markdown(
-                        f'<span class="entity-chip" style="background:{color};">'
-                        f'{display_name} ({label}): <b>{count}</b></span>',
-                        unsafe_allow_html=True,
-                    )
-
-                st.divider()
-
-                # Tabela encji
-                if filtered:
-                    import pandas as pd
-                    table_data = [
-                        {
-                            "Encja": e.text,
-                            "Typ": e.label,
-                            "Nazwa typu": LABEL_NAMES.get(e.label, e.label),
-                            "Kontekst": e.context[:100] + "..." if len(e.context) > 100 else e.context,
-                        }
-                        for e in filtered
-                    ]
-                    st.dataframe(
-                        pd.DataFrame(table_data),
-                        use_container_width=True,
-                        hide_index=True,
-                    )
-                else:
-                    st.info("Brak encji spełniających kryteria filtrowania.")
-
-        # Wyszukiwanie encji w całej bazie
-        st.divider()
-        st.subheader("🌐 Wyszukaj encję w całej bazie dokumentów")
-        global_entity_search = st.text_input("Wpisz encję do wyszukania:", key="global_ner_search")
-        if global_entity_search.strip():
-            with st.spinner("Przeszukuję wszystkie dokumenty..."):
-                found_docs: dict[str, list] = {}
-                for doc in docs:
-                    ents = ner_engine.extract_entities(doc.content, doc.id, doc.name)
-                    matches = [e for e in ents if global_entity_search.lower() in e.text.lower()]
-                    if matches:
-                        found_docs[doc.name] = matches
-
-            if found_docs:
-                st.success(f"Encja **'{global_entity_search}'** znaleziona w {len(found_docs)} dokument(ach):")
-                for doc_name, ents in found_docs.items():
-                    with st.expander(f"📄 {doc_name} — {len(ents)} trafień"):
-                        for e in ents[:10]:
-                            color = ENTITY_COLORS.get(e.label, "#e8e8e8")
-                            st.markdown(
-                                f'<span class="entity-chip" style="background:{color};">'
-                                f'<b>{e.text}</b> [{e.label}]</span> — <i>{e.context[:120]}</i>',
-                                unsafe_allow_html=True,
-                            )
-            else:
-                st.info(f"Encja **'{global_entity_search}'** nie znaleziona w żadnym dokumencie.")
+st.title("Wyszukiwanie semantyczne i ekstrakcja wiedzy")
+tabs = st.tabs(["Baza dokumentów", "Wyszukiwarka", "Encje NER", "Statystyki"])
+with tabs[0]:
+    view_documents()
+with tabs[1]:
+    view_search()
+with tabs[2]:
+    view_entities()
+with tabs[3]:
+    view_stats()
