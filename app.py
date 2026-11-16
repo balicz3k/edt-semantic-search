@@ -20,7 +20,7 @@ METHODS = ["Słowa kluczowe", "TF-IDF", "Semantyczne"]
 METHOD_INFO = {
     "Słowa kluczowe": "dokładne słowa/frazy w cudzysłowie, ranking: liczba dopasowanych słów, potem wystąpień",
     "TF-IDF": "lematy + stopwords PL, podobieństwo cosinusowe wektorów TF-IDF",
-    "Semantyczne": "embeddingi fragmentów (paraphrase-multilingual-MiniLM-L12-v2), max cosinus",
+    "Semantyczne": "embeddingi fragmentów (multilingual-e5-small), wynik = max cosinus",
 }
 
 st.set_page_config(page_title="Wyszukiwanie semantyczne i NER", layout="wide")
