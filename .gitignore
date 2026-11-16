@@ -18,3 +18,15 @@ __pycache__/
 .DS_Store
 *.log
 .env
+
+# pliki pomocnicze LaTeX-a
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
