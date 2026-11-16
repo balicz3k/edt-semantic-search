@@ -30,6 +30,7 @@ COLORS = {
 # grupy do panelu najczęstszych encji
 LOCATION_LABELS = ("placeName", "geogName")
 
+PARAGRAPH = re.compile(r"[^\n]+(?:\n(?!\n)[^\n]+)*")
 SENTENCE_END = re.compile(r"(?<=[.!?])\s+(?=[A-ZĄĆĘŁŃÓŚŹŻ0-9])")
 
 
@@ -54,28 +55,38 @@ def detect_language(text: str) -> str:
     return "pl" if pl >= en else "en"
 
 
+def _units(text: str):
+    """Kolejne akapity, a w nich zdania - jako pary (początek, koniec)."""
+    for m in PARAGRAPH.finditer(text):
+        cuts = [m.start()] + [m.start() + s.end() for s in SENTENCE_END.finditer(m.group())] \
+            + [m.end()]
+        for a, b in zip(cuts, cuts[1:]):
+            # bardzo długi kawałek bez kropek (lista, tabela) tnę na spacjach
+            while b - a > 2 * CHUNK_CHARS:
+                cut = text.rfind(" ", a, a + CHUNK_CHARS)
+                cut = cut if cut > a else a + CHUNK_CHARS
+                yield a, cut
+                a = cut
+            yield a, b
+
+
 def make_chunks(text: str) -> list[tuple[int, int]]:
-    """Dzieli tekst na fragmenty ok. CHUNK_CHARS znaków: najpierw po akapitach,
-    zbyt długie akapity dalej po zdaniach. Zwraca pary (początek, koniec)."""
-    chunks = []
-    for m in re.finditer(r"[^\n]+(?:\n(?!\n)[^\n]+)*", text):  # akapity
-        start, para = m.start(), m.group()
-        if len(para.strip()) < 40:   # nagłówki sekcji doklejam do następnego fragmentu
-            continue
-        if len(para) <= CHUNK_CHARS * 1.5:
-            chunks.append((start, m.end()))
-            continue
-        # granice zdań wewnątrz akapitu; skleję zdania do ok. CHUNK_CHARS znaków
-        bounds = [start + s.end() for s in SENTENCE_END.finditer(para)] + [m.end()]
-        cur = start
-        for b in bounds:
-            if b - cur >= CHUNK_CHARS:
-                chunks.append((cur, b))
-                cur = b
-        if m.end() - cur > 40:
-            chunks.append((cur, m.end()))
-        elif cur < m.end():
-            chunks[-1] = (chunks[-1][0], m.end())  # krótka końcówka do poprzedniego
+    """Dzieli tekst na fragmenty co najmniej CHUNK_CHARS znaków: skleja kolejne
+    zdania i akapity. Krótkie nagłówki i pozycje list trafiają więc do większego
+    fragmentu, zamiast być osobnym (mylącym) wektorem. Zwraca pary (początek, koniec)."""
+    chunks, start, end = [], None, 0
+    for a, b in _units(text):
+        if start is None:
+            start = a
+        end = b
+        if end - start >= CHUNK_CHARS:
+            chunks.append((start, end))
+            start = None
+    if start is not None:
+        if chunks and end - start < CHUNK_CHARS // 2:
+            chunks[-1] = (chunks[-1][0], end)   # krótką końcówkę doklejam do poprzedniego
+        else:
+            chunks.append((start, end))
     return chunks or [(0, len(text))]
 
 
