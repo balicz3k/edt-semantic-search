@@ -1,36 +1,20 @@
-# Środowisko wirtualne
+# środowisko wirtualne
 .venv/
 venv/
-env/
 
-# Przechowywanie danych (ChromaDB, indeksy)
+# baza dokumentów, indeksy i embeddingi (tworzone przez aplikację)
 storage/
 
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-dist/
-build/
+.pytest_cache/
+.ipynb_checkpoints/
 
-# Streamlit
+# Streamlit, IDE, system
 .streamlit/
-
-# Systemy operacyjne
-.DS_Store
-Thumbs.db
-
-# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# Logi
+.DS_Store
 *.log
-
-# Środowisko
 .env

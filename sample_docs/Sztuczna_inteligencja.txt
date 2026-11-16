@@ -1,0 +1,153 @@
+Sztuczna inteligencja
+
+Sztuczna inteligencja, SI (ang. artificial intelligence, AI) – inteligencja wykazywana przez urządzenia obliczeniowe w przeciwieństwie do inteligencji naturalnej. W informatyce i kognitywistyce terminem tym określa się także dziedzinę zajmującą się tworzeniem modeli i programów symulujących choć częściowo zachowania inteligentne. Jako narzędzie matematyczne nie jest ona bytem ani świadomą osobą i bywa przedmiotem rozważań filozofii oraz nauk społecznych.
+Termin „sztuczna inteligencja” wymyślił John McCarthy w 1956 na konferencji w Dartmouth. Andreas Kaplan i Michael Haenlein definiują sztuczną inteligencję jako „zdolność systemu do prawidłowego interpretowania danych pochodzących z zewnętrznych źródeł, nauki na ich podstawie oraz wykorzystywania tej wiedzy, aby wykonywać określone zadania i osiągać cele poprzez elastyczne dostosowanie”. Sztuczną inteligencją zajmowali się m.in. Marvin Minsky, John McCarthy, Alan Turing, Edward Feigenbaum, Raj Reddy, Judea Pearl, Allen Newell, Herbert A. Simon.
+Termin bywa używany w dwóch znaczeniach: jako hipotetyczna inteligencja realizowana w procesie technicznym, a nie naturalnym, oraz jako nazwa technologii i dziedziny badań naukowych informatyki i kognitywistyki, czerpiącej także z psychologii, neurologii, matematyki i filozofii.
+Głównym zadaniem tych badań jest konstruowanie maszyn i programów komputerowych zdolnych do realizacji wybranych funkcji umysłu i ludzkich zmysłów, niepoddających się numerycznej algorytmizacji. Do tak zwanych problemów AI-trudnych zalicza się m.in. podejmowanie decyzji w warunkach niepełnych danych, analizę i syntezę języków naturalnych, rozumowanie logiczne, automatyczne dowodzenie twierdzeń, gry logiczne (np. szachy i go), robotykę oraz systemy eksperckie i diagnostyczne. Dziedzina jest powiązana z uczeniem maszynowym, logiką rozmytą, widzeniem komputerowym, obliczeniami ewolucyjnymi, sieciami neuronowymi, robotyką i sztucznym życiem.
+Złożone algorytmy sztucznej inteligencji bywają określane mianem czarnej skrzynki, ponieważ przy dużej liczbie danych i parametrów prześledzenie, w jaki sposób podejmują one decyzje, jest trudne. Wyjaśnianiu działania takich modeli poświęcony jest obszar badań nad wyjaśnialną sztuczną inteligencją (XAI) i interpretowalnością, obejmujący m.in. metody atrybucji oraz tzw. interpretowalność mechanistyczną. Podejmowano też próby opracowania matematycznej teorii ich działania, w tym dla architektury GPT.
+
+Techniki
+
+Wyszukiwanie i optymalizacja
+
+Wiele problemów sztucznej inteligencji można rozwiązywać przez systematyczne przeszukiwanie przestrzeni możliwych rozwiązań. Proste algorytmy, takie jak przeszukiwanie wszerz, okazują się niewystarczające dla większości rzeczywistych problemów ze względu na szybki wzrost liczby możliwych stanów. Z tego powodu stosuje się heurystyki, które ukierunkowują poszukiwanie na bardziej obiecujące rozwiązania, czego przykładem jest algorytm A*. W grach dwuosobowych stosuje się algorytm minimax, który analizuje drzewo możliwych ruchów obu graczy. Odrębną grupę stanowią metody optymalizacji matematycznej. Metoda gradientu prostego pozwala stopniowo poprawiać parametry rozwiązania i stanowi podstawę treningu sieci neuronowych, natomiast obliczenia ewolucyjne, w tym algorytmy genetyczne, udoskonalają populację kandydujących rozwiązań w drodze mutacji i selekcji, a symulowane wyżarzanie dopuszcza okresowe pogorszenie rozwiązania, dzięki czemu unika utknięcia w optimach lokalnych.
+
+Logika i reprezentacja wiedzy
+
+Podejście symboliczne wykorzystuje logikę formalną do zapisu wiedzy i wnioskowania. Rachunek zdań i logika pierwszego rzędu pozwalają zapisywać fakty oraz relacje między obiektami, a automatyczne dowodzenie twierdzeń umożliwia wyprowadzanie z nich nowych wniosków. Reprezentacja wiedzy obejmuje budowę ontologii i baz wiedzy, z których korzystają systemy ekspertowe. Logika rozmyta dopuszcza stopniowanie prawdziwości zdań, co pozwala modelować pojęcia nieostre, a logiki niemonotoniczne umożliwiają wycofywanie wniosków w świetle nowych informacji.
+
+Metody probabilistyczne
+
+Wiele problemów wymaga podejmowania decyzji na podstawie niepełnych lub niepewnych informacji. Narzędzi do tego dostarczają rachunek prawdopodobieństwa i teoria decyzji. Sieci bayesowskie umożliwiają zwięzły zapis zależności między zmiennymi losowymi oraz wnioskowanie o prawdopodobieństwie zdarzeń, a ukryte modele Markowa opisują procesy zmieniające się w czasie i stanowiły podstawę m.in. wczesnych systemów rozpoznawania mowy. Do śledzenia stanu zmieniających się układów stosuje się także filtr Kalmana i filtry cząsteczkowe, wykorzystywane m.in. w lokalizacji robotów.
+
+Uczenie maszynowe
+Uczenie maszynowe polega na budowie programów, które poprawiają swoje działanie na podstawie danych. W uczeniu nadzorowanym program uczy się na przykładach opatrzonych poprawnymi odpowiedziami, w uczeniu nienadzorowanym samodzielnie wyszukuje wzorce w danych, a w uczeniu przez wzmacnianie doskonali zachowanie na podstawie nagród i kar. Do klasycznych technik uczenia maszynowego należą drzewa decyzyjne, naiwne klasyfikatory bayesowskie, regresja logistyczna i maszyny wektorów nośnych.
+
+Sieci neuronowe
+
+Sieć neuronowa opiera się na zbiorze połączeń, znanych również jako sztuczne neurony, które stanowią analogię neuronów w biologicznym mózgu. Jest ona trenowana do rozpoznawania wzorców, a po przeszkoleniu może rozpoznawać te wzorce w świeżych danych. W najprostszej postaci posiada wejście, co najmniej jedną ukrytą warstwę połączeń i wyjście. Każde połączenie posiada funkcję aktywacji, która pozwala na przesyłane informacji do następnej warstwy. Sieć jest zazwyczaj nazywana głęboką siecią neuronową, jeśli ma co najmniej 2 ukryte warstwy.
+Jednokierunkowe sieci neuronowe pozwalają na przesył informacji tylko w jednym kierunku. Rekurencyjne sieci neuronowe łączy z sobą wyjście z wejściem, co pozwala na tworzenie pamięci krótkotrwałej, a najbardziej popularnym rodzajem tych sieci jest długa pamięć krótkotrwała. Konwolucyjne sieci neuronowe skupiają się na połączeniach pomiędzy neuronami, które są blisko siebie, co jest krytyczne w przetwarzaniu obrazów.
+
+Uczenie głębokie
+Uczenie głębokie używa wielu warstw sieci neuronowej, dzięki czemu możliwe jest operowanie na cechach wysokiego poziomu. Dla przykładu, w przetwarzaniu obrazu, niższe warstwy (bliżej wejścia) mogą wykrywać krawędzie natomiast wyższe warstwy (bliżej wyjścia) mogą przetwarzać koncepcje bliższe ludziom jak liczby, litery czy twarze.
+
+Transformery
+Architektura transformera, zaproponowana przez zespół Google w 2017 roku, opiera się na mechanizmie uwagi (ang. attention mechanism), który pozwala modelowi na jednoczesne przetwarzanie wszystkich elementów sekwencji wejściowej i dynamiczne ważenie ich wzajemnych relacji. W odróżnieniu od rekurencyjnych sieci neuronowych transformery przetwarzają dane równolegle, co umożliwia szkolenie na znacznie większych zbiorach danych. Architektura ta stała się podstawą zarówno dużych modeli językowych (GPT, Claude, Gemini), jak i modeli generujących obrazy (DALL-E, Stable Diffusion).
+
+Duże modele językowe
+Duże modele językowe (LLM) jak wstępnie przeszkolony transformer generatywny (GPT) generują tekst oparty na związkach semantycznych pomiędzy słowami i zdaniami. Tekstowe duże modele językowe bazują na dużym korpusie pobranym z różnych stron w Internecie. Wstępny trening polega na nauczeniu predykcji następnego tokena, po czym następuje docelowy trening mający na celu poprawę użyteczności, wiarygodności i bezpieczeństwa. Do tego celu stosowana jest technika RLHF. Według stanu na 2025 rok LLM-y są podatne na generowanie fałszywych informacji nazywanych halucynacjami, a sam problem potrafi się pogarszać w miarę używania tych modeli do rozumowania.
+
+Modele dyfuzyjne
+
+Do początku lat 20. XXI wieku generowanie obrazów opierało się głównie na generatywnych sieciach przeciwstawnych (GAN), w których jeden model tworzy obraz, a drugi ocenia, czy jest on prawdziwy. Sieci te cechowały się jednak niestabilnością treningu i skłonnością do powtarzania tych samych obrazów. Modele dyfuzyjne zastąpiły bezpośrednie generowanie procesem stopniowej rekonstrukcji i pozwoliły uzyskać wyniki lepszej jakości. Nazwa metody nawiązuje do zjawiska dyfuzji w termodynamice. W procesie treningu do obrazu stopniowo dodaje się szum o rozkładzie normalnym, aż obraz staje się czystym szumem, a model uczy się procesu odwrotnego, czyli usuwania szumu krok po kroku. Generowanie nowego obrazu zaczyna się od losowego szumu, z którego model iteracyjnie wydobywa pożądaną strukturę. Praca na pełnej rozdzielczości obrazu wymaga dużej mocy obliczeniowej, dlatego modele dyfuzji ukrytej (LDM), takie jak Stable Diffusion, wykonują ten proces na skompresowanej reprezentacji obrazu utworzonej przez autoenkoder. Zgodność obrazu z opisem tekstowym zapewniają modele łączące tekst i obraz we wspólnej przestrzeni reprezentacji, takie jak CLIP firmy OpenAI, wytrenowany na 400 milionach par obrazów i ich podpisów.
+
+Uczenie reprezentacji i samonadzór
+Cechą wspólną nowoczesnych metod sztucznej inteligencji jest uczenie reprezentacji, czyli automatyczne wydobywanie z surowych danych cech ułatwiających rozwiązanie zadania zamiast ręcznego ich projektowania. Coraz większą rolę odgrywa uczenie samonadzorowane (ang. self-supervised learning), w którym model uczy się na nieoznakowanych danych, samodzielnie tworząc zadania pomocnicze, takie jak przewidywanie zasłoniętych fragmentów tekstu. Pozwala to wstępnie trenować duże modele na ogromnych, nieopisanych zbiorach danych, co stosuje się m.in. w modelach językowych. Rozwijają się też modele multimodalne, które łączą różne typy danych, na przykład tekst i obraz, we wspólnej przestrzeni reprezentacji, czego przykładem jest model CLIP.
+
+Prawa skalowania
+Empiryczne prawa skalowania (ang. scaling laws) opisują, jak jakość modeli, mierzona np. wartością funkcji straty, poprawia się wraz ze wzrostem liczby parametrów, rozmiaru zbioru danych i nakładu obliczeń, w przybliżeniu według zależności potęgowych. Późniejsze badania nad modelem Chinchilla wykazały, że wiele wcześniejszych modeli miało zbyt wiele parametrów w stosunku do ilości danych treningowych, oraz że przy ustalonym budżecie obliczeniowym liczbę parametrów i liczbę tokenów treningowych należy zwiększać w zbliżonym tempie.
+
+Historia badań
+W 1950 roku Alan Mathison Turing zaproponował, by możliwość udawania człowieka w zdalnej rozmowie uznać za test inteligencji maszyn (test Turinga). W latach 50. XX wieku zorganizowano pierwsze seminarium poświęcone SI (tzw. Warsztaty w Dartmouth), a także powstało pierwsze laboratorium SI na Carnegie Mellon University, założone przez Allena Newella i Herberta Simona i kilka lat później analogiczne laboratorium w Massachusetts Institute of Technology, założone przez Johna McCarthy’ego.
+Termin „sztuczna inteligencja” został po raz pierwszy zaproponowany prawdopodobnie przez Johna McCarthy’ego, który w 1955 r. zdefiniował go w następujący sposób:
+
+„konstruowanie maszyn, o których działaniu dałoby się powiedzieć, że są podobne do ludzkich przejawów inteligencji”.
+Od początku rozwoju dziedziny rywalizowały dwa główne podejścia. Pierwsze, symboliczne, polegało na tworzeniu modeli matematyczno-logicznych analizowanych problemów i implementowaniu ich jako programów komputerowych realizujących konkretne funkcje uznawane za składowe inteligencji, m.in. za pomocą algorytmów genetycznych, logiki rozmytej i wnioskowania opartego na doświadczeniu. Drugie, subsymboliczne, opierało się na strukturach „samouczących się” bazujących na sieciach neuronowych i sieciach asocjacyjnych oraz na opracowywaniu procedur ich uczenia.
+W trakcie wieloletniej pracy laboratoriów i zespołów SI stosujących oba podejścia do problemu postęp okazywał się nierównomierny, z okresami szybkiego rozwoju i tzw. zimami AI. Często mimo niepowodzeń w osiąganiu pierwotnych celów, laboratoria te wypracowywały nowe techniki informatyczne, które okazywały się użyteczne do zupełnie innych celów. Przykładami takich technik są np. języki programowania LISP i Prolog. Laboratoria SI stały się też „rozsadnikiem” kultury hakerskiej.
+W latach 80. XX wieku popularność zyskały systemy eksperckie, które wykorzystywały ręcznie kodowane reguły do rozwiązywania problemów w wąskich dziedzinach. Po okresie rozczarowania ich ograniczeniami (tzw. druga zima AI na przełomie lat 80. i 90.) badania przesunęły się w kierunku metod statystycznych i uczenia maszynowego.
+W latach 90. XX wieku zwrot statystyczny najsilniej zaznaczył się w przetwarzaniu języka naturalnego, gdzie modele n-gramowe oraz statystyczne tłumaczenie maszynowe szacujące prawdopodobieństwa na podstawie zbiorów par zdań zastąpiły wcześniejsze reguły kodowane ręcznie. Upowszechniły się wtedy także narzędzia probabilistyczne, takie jak sieci bayesowskie i ukryte modele Markowa, pozwalające podejmować decyzje w warunkach niepewności.
+Przełom nastąpił w 2012 roku, gdy sieć neuronowa AlexNet wygrała konkurs ImageNet Large Scale Visual Recognition Challenge z przewagą ponad 10 punktów procentowych nad metodami tradycyjnymi, co zapoczątkowało erę dominacji uczenia głębokiego. Za wkład w rozwój uczenia głębokiego Geoffrey Hinton, Yann LeCun i Yoshua Bengio otrzymali Nagrodę Turinga w 2018 roku. Kolejnymi kamieniami milowymi były: pokonanie mistrza świata w Go przez program AlphaGo (2016), opublikowanie architektury transformera (2017) oraz rozwój coraz większych dużych modeli językowych, takich jak GPT-3 (2020) i GPT-4 (2023).
+Postęp uczenia głębokiego wynikał nie tylko z nowych architektur, lecz także z dwóch czynników zewnętrznych: wzrostu mocy obliczeniowej, w tym wykorzystania procesorów graficznych (GPU) do obliczeń równoległych, oraz dostępności ogromnych zbiorów danych gromadzonych w Internecie. Sam zbiór ImageNet, na którym wytrenowano AlexNet, zawierał miliony oznaczonych zdjęć. Moc obliczeniowa używana do trenowania czołowych systemów AI rosła w tym okresie wykładniczo, podwajając się mniej więcej co kilka miesięcy.
+Sztuczna inteligencja zyskała szeroką rozpoznawalność publiczną po uruchomieniu ChatGPT w listopadzie 2022 roku. W ciągu dwóch miesięcy serwis osiągnął 100 milionów użytkowników.
+Według badania z 2023 roku 94% polskich specjalistów IT o różnych poziomach doświadczenia wykorzystuje narzędzia SI w codziennej pracy, a 28,7% obawia się, że w ciągu najbliższych kilku lat sztuczna inteligencja zastąpi ich w pracy.
+Od czasów powstania ChatGPT trwa intensywna rywalizacja między firmami technologicznymi o dominację na rynku dużych modeli językowych. Najnowsze rozwiązania związane z tymi modelami to agenty SI, które dają możliwość wykonywania czynności, zazwyczaj poprzez komunikację z aplikacjami internetowymi oraz protokół MCP stworzony przez firmę Anthropic, który ułatwia komunikację modeli językowych z zewnętrznymi systemami lub usługami.
+
+Zastosowania
+Sztuczna inteligencja jest stosowana od dekad w różnych dziedzinach gospodarki. W 1980 rynek SI miał rozmiar liczony w setkach milionów dolarów, a w roku 1988 był szacowany na miliardy dolarów i głównie skupiał się na zastosowaniach systemów eksperckich. W latach 90. XX wieku znajdowano coraz więcej zastosowań dla SI w technologiach informacyjnych takich jak robotyka przemysłowa, aplikacje bankowe, diagnostyka medyczna, rozpoznawanie mowy czy wyszukiwarka Google. Kolejne dekady przyniosły dalsze zastosowania sztucznej inteligencji wraz z rosnącą mocą obliczeniową komputerów i wypracowaniem bardziej zaawansowanych technik. Lata dwudzieste XXI wieku przyniosły ekspansję AI.
+W 2024 roku szacowano, że sztuczna inteligencja będzie miała wpływ na wzrost PKB w wysokości od 1,1 do 1,6% w ciągu 10 lat. W 2024 roku w Polsce 5,9% przedsiębiorstw wykorzystywało SI, wskaźnik ten był niższy niż średnia UE (13,48%). W 2023 roku wskaźnik ten wynosił odpowiednio 3,67% i 8,00%. W Stanach Zjednoczonych w 2023 roku 3,8% przedsiębiorstw korzystało z SI do produkcji dóbr i usług. W roku 2024 83% firm w Chinach i 48% firm w Polsce testowało lub wdrożyło generatywną sztuczną inteligencję w co najmniej jednym procesie biznesowym.
+Łączna wartość nakładów publicznych na SI w latach 2013–2023 w USA wyniosła 5,233 mld USD, w Niemczech 278 mln USD i Polsce 55,92 mln USD. Łączna wysokość prywatnych inwestycji na SI w 2024 roku w Stanach wyniosła 109,8 mld USD, w Europie 19,42 mld USD (w tym w Niemczech 1,97 mld USD), w Chinach 9,29 mld USD. W 2024 roku udział Polski w globalnych prywatnych inwestycjach w sztuczną inteligencję wyniósł 0,05%.
+
+Ekonomia modeli fundamentalnych i otwartość
+Trening czołowych modeli fundamentalnych wymaga bardzo dużych nakładów na moc obliczeniową i dane, dlatego ich rozwój koncentruje się w niewielkiej grupie dobrze finansowanych firm i instytucji. W debacie o sposobie udostępniania modeli ścierają się dwa podejścia. Modele zamknięte są dostępne wyłącznie przez interfejs dostawcy, co ułatwia kontrolę nad ich użyciem, natomiast modele o otwartych wagach (ang. open-weight) można pobrać, badać i samodzielnie dostosowywać, co sprzyja przejrzystości, konkurencji i obniżeniu kosztów, lecz utrudnia zapobieganie nadużyciom.
+
+Generatywna sztuczna inteligencja
+
+Generatywna sztuczna inteligencja (GenAI) jest ogółem narzędzi, które korzystają z modeli generatywnych do tworzenia tekstu, obrazów, wideo czy innych formatów danych. Do generowania zawartości korzysta się z inżynierii podpowiedzi. W szczególności, duże modele językowe mogą być używane przez programistów do pisania kodu programów. Praktyka tworzenia programów komputerowych za pomocą sztucznej inteligencji (bez zrozumienia kodu źródłowego) określana jest jako „vibe coding”. Możliwości tej techniki są ograniczone, jako że sztuczna inteligencja nie radzi sobie w bardziej złożonych zastosowaniach. Duże modele językowe mogą być również wykorzystywane do rozwiązywania problemów matematycznych.
+
+Ekonomia
+W ekonomii powszechnie stosuje się systemy automatycznie oceniające m.in. zdolność kredytową, profil najlepszych klientów czy planujące kampanie reklamowe. Systemy te poddawane są wcześniej automatycznemu uczeniu na podstawie posiadanych danych (np. klientów banku, którzy regularnie spłacali kredyt i klientów, którzy mieli z tym problemy).
+Rozwiązania z zakresu SI są też używane w prognozowaniu i wykrywaniu oszustw. Przy użyciu m.in. regresji logistycznej systemy analizują zbiory danych w celu wychwytywania np. podejrzanych transakcji finansowych.
+
+Wojskowość
+Sztuczna inteligencja znajduje zastosowanie w takich aspektach wojskowości jak autonomiczne systemy bojowe, wsparcie podejmowania decyzji i optymalizacja logistyki.
+Wojskowe zastosowanie sztucznej inteligencji jest przyczyną wyścigu zbrojeń sztucznej inteligencji.
+
+Medycyna
+
+Sztuczna inteligencja ma potencjał do transformacji medycyny. SI już teraz pomaga w wykonywaniu różnorodnych zadań, takich jak diagnostyka obrazowa, przewidywanie chorób, prowadzenie badań i zarządzanie danymi pacjentów. Algorytmy SI mogą analizować duże ilości danych szybciej i dokładniej niż ludzie, co może przynieść korzyści dla pacjentów i lekarzy.
+
+Gry
+
+Sieci neuronowe znajdują zastosowanie m.in. w programowaniu „inteligentnych przeciwników” w grach komputerowych, a także potrafią samodzielnie przechodzić całe gry.
+Istnieją programy grające w szachy na poziomie wyższym niż arcymistrzowski, a poziom arcymistrzowski osiągają obecnie programy działające na mobilnych urządzeniach. Stworzono również program grający w go, który pokonał światową czołówkę. Wcześniej podobne zwycięstwa odnosiły programy grające w warcaby, w tym warcaby polskie. W 2022 roku program NooK, opracowany przez francuską firmę NukkAI, pokonał ośmioro mistrzów świata w uproszczonej wersji brydża sportowego.
+
+Inne zastosowania sztucznej inteligencji
+Maszynowe tłumaczenie tekstów – systemy oparte na sieciach neuronowych (np. Google Translate, DeepL) osiągają wysoką jakość w wielu parach językowych, choć nadal mają trudności z kontekstem, idiomami i tekstami literackimi.
+Rozpoznawanie obrazów – stosowane w rozpoznawaniu twarzy, analizie zdjęć satelitarnych, diagnostyce medycznej i pojazdach autonomicznych.
+Rozpoznawanie mowy – stosowane na skalę komercyjną w asystentach głosowych (np. Siri, Google Assistant), transkrypcji i obsłudze klienta.
+Rozpoznawanie pisma (OCR) – stosowane do automatycznego sortowania korespondencji, przetwarzania dokumentów i ekstrakcji danych z formularzy.
+Generowanie obrazów – modele takie jak DALL-E, Midjourney i Stable Diffusion tworzą obrazy na podstawie opisu tekstowego, co znalazło zastosowanie w projektowaniu graficznym, reklamie i rozrywce.
+Eksploracja danych i analityka predykcyjna – wykorzystywane w handlu, ubezpieczeniach i telekomunikacji do identyfikacji wzorców i prognozowania zachowań klientów.
+Analiza wideo w czasie rzeczywistym – stosowana w systemach monitoringu, zarządzaniu ruchem drogowym i prognozowaniu natężenia ruchu.
+Przewidywanie struktury białek – program AlphaFold (DeepMind) w 2020 roku rozwiązał wieloletni problem przewidywania trójwymiarowej struktury białek, za co Demis Hassabis i John Jumper otrzymali Nagrodę Nobla z chemii w 2024 roku.
+
+Nieudane próby zastosowań
+W 2020 roku portal The Verge opisał przypadek programu Edgenuity, który wykorzystywał sztuczną inteligencję do automatycznego oceniania prac domowych uczniów. Próba okazała się nieudana, ponieważ uczniowie oszukiwali algorytm oceniający, umieszczając w odpowiedziach odpowiednie słowa kluczowe.
+
+Etyka
+
+Sztuczna inteligencja a uprzedzenia
+Systemy sztucznej inteligencji mogą przejawiać różnego rodzaju uprzedzenia np. rasowe lub seksistowskie, ze względu na stronniczość danych testowych i zjawisko nieświadomych uprzedzeń (unconscious bias). Może to rodzić poważne konsekwencje w zależności od miejsca, w którym sztuczna inteligencja ma zastosowanie.
+Przykłady:
+
+Google Photos używał automatycznego tagowania zdjęć. Tagowano osoby czarnoskóre jako goryle.
+Systemy osadzania słów (ang. word embedding), jak Word2Vec (Google), GloVe (Uniwersytetu Stanforda), wiązały Meksykanów z przestępstwami, a kobiety z pracami domowymi.
+System COMPAS (pomagający sędziom w Stanach Zjednoczonych w podejmowaniu decyzji) skojarzał przestępczość z osobami czarnoskórymi.
+Problem uprzedzeń sztucznej inteligencji został przedstawiony w filmie dokumentalnym Zakodowane uprzedzenie z 2020 roku. Film dostępny jest w serwisie Netflix.
+
+Dezinformacja
+Sztuczna inteligencja mimo zalet może być także wykorzystywana do szerzenia dezinformacji. Można jej używać do tworzenia tzw. deepfakeów, czy tworzenie treści przez duże modele językowe. W przypadku modeli językowych może to być niezamierzone, gdy model halucynuje, lub celowe np. tworzenie fake news, gdzie modele językowe mogą ułatwić pracę trollom internetowym. Modele językowe mogą także pomagać w walce z dezinformacją.
+
+Bezpieczeństwo i zgodność
+
+Odrębnym obszarem badań jest bezpieczeństwo sztucznej inteligencji oraz tzw. problem zgodności (ang. AI alignment), czyli zapewnienie, by zachowanie systemów odpowiadało intencjom i wartościom ich twórców oraz użytkowników. Już w 2016 roku opisano konkretne problemy techniczne związane z bezpieczeństwem, takie jak unikanie skutków ubocznych, podatność na manipulację funkcją nagrody czy bezpieczna eksploracja. Do dostrajania modeli językowych do oczekiwań ludzi stosuje się m.in. technikę RLHF. Stuart Russell argumentuje, że wraz ze wzrostem możliwości systemów kluczowe staje się utrzymanie nad nimi kontroli człowieka.
+
+Regulacja
+
+Regulacja i polityka dotycząca sztucznej inteligencji jest nowym problemem w jurysdykcjach na całym świecie. Według stanu na 2022 rok większość krajów UE opublikowała swoją strategię SI, podobnie jak Kanada, Chiny, Japonia, Rosja i Stany Zjednoczone. W 2024 roku weszło w życie rozporządzenie Unii Europejskiej AI Act (akt o sztucznej inteligencji), które wprowadza klasyfikację systemów SI według poziomu ryzyka i zakazuje określonych zastosowań, takich jak masowa punktacja społeczna i nieukierunkowane zbieranie danych biometrycznych. Jest to pierwszy na świecie kompleksowy akt prawny regulujący sztuczną inteligencję.
+Równolegle w 2024 roku Rada Europy przyjęła pierwszą międzynarodową Konwencję ramową Rady Europy o sztucznej inteligencji, którą podpisały Unia Europejska, Stany Zjednoczone, Wielka Brytania i inne kraje.
+
+Filozofia
+
+Debaty filozoficzne od dawna dotyczą natury inteligencji i możliwości tworzenia inteligentnych maszyn. Kolejnym ważnym zagadnieniem było to, czy maszyny mogą być świadome, oraz związane z tym implikacje etyczne. Wiele innych zagadnień filozoficznych jest istotnych dla sztucznej inteligencji, takich jak epistemologia i wolna wola. Szybki postęp zintensyfikował publiczne dyskusje na temat filozofii i etyki sztucznej inteligencji.
+
+Świadomość, wrażliwość i umysł maszyn
+
+Odpowiedź na pytanie, czy maszyna może mieć umysł, świadomość i stany mentalne w tym samym sensie co ludzie, jest tematem debaty wśród filozofów umysłu. Ta kwestia rozważa wewnętrzne doświadczenia maszyny, a nie jej zewnętrzne zachowanie. Główny nurt badań nad sztuczną inteligencją uważa tę kwestię za nieistotną, ponieważ nie wpływa ona na cele tej dziedziny: budowania maszyn, które mogą rozwiązywać problemy za pomocą inteligencji. Stuart Russell i Peter Norvig dodają, że projekt uczynienia maszyny świadomą dokładnie w taki sposób, w jaki świadomi są ludzie, wykracza poza obecne możliwości badaczy.
+W 2026 roku firma Anthropic podała, że jej modele mogą wytwarzać tak zwane „emocje funkcjonalne”, czyli wzorce aktywności wpływające na sposób generowania odpowiedzi, które miałyby pełnić rolę podobną do emocji, lecz bez przeżyć i świadomości. Są to jednak interpretacje samej firmy rozwijającej te modele, a nie ustalony wynik niezależnych badań, gdyż pojęcie „emocji funkcjonalnych” nie jest ugruntowane w literaturze naukowej. Tego rodzaju doniesienia sprzyjają antropomorfizacji sztucznej inteligencji, czyli przypisywaniu jej ludzkich cech psychicznych, mimo braku dowodów na istnienie świadomości w obecnych systemach.
+
+Komputacjonizm i funkcjonalizm
+
+Komputacjonizm to stanowisko w filozofii umysłu, zgodnie z którym umysł ludzki jest systemem przetwarzania informacji, a myślenie jest formą obliczeń. Komputacjonizm twierdzi, że relacja między umysłem a ciałem jest podobna lub identyczna do relacji między oprogramowaniem a sprzętem, a zatem może być rozwiązaniem dylematu psychofizycznego. To stanowisko filozoficzne zostało zainspirowane pracą badaczy SI i naukowców zajmujących się kognitywistyką w latach 60. XX wieku i zostało pierwotnie zaproponowane przez filozofów Jerry'ego Fodora i Hilary'ego Putnama.
+Filozof John Searle scharakteryzował to stanowisko jako tzw. silną SI: odpowiednio zaprogramowany komputer z właściwymi danymi wejściowymi i wyjściowymi miałby umysł w dokładnie takim samym sensie, w jakim mają umysły ludzie. Searle kwestionuje to twierdzenie swoim argumentem chińskiego pokoju, który próbuje wykazać, że nawet komputer zdolny do idealnego symulowania ludzkiego zachowania nie miałby umysłu.
+
+Sztuczna inteligencja na ludzkim poziomie
+
+Do początku lat 20. XXI wieku w literaturze dominował podział dwudzielny. Systemy dzielono na wąską sztuczną inteligencję (ANI), wyspecjalizowaną w pojedynczym zadaniu, oraz ogólną sztuczną inteligencję (AGI), rozumianą jako odległy cel w postaci systemu dorównującego człowiekowi we wszystkich aspektach poznawczych. Pojawienie się dużych modeli językowych stworzyło kategorię pośrednią, która wymusiła rewizję tego podziału. Modele takie jak GPT-3 wykazały umiejętności obejmujące wiele dziedzin, w tym pisanie kodu i analizę tekstów prawnych, mimo że nie były do nich specjalnie trenowane. W 2021 roku badacze z Uniwersytetu Stanforda wprowadzili termin modele podstawowe (ang. foundation models) na określenie zmiany paradygmatu treningu. Zamiast budować osobny model dla każdego zadania, trenuje się jeden model na ogromnych zbiorach danych, a następnie dostosowuje go do wielu zastosowań.
+W 2023 roku badacze Google DeepMind zaproponowali ramy pomiaru postępu w drodze do AGI, oceniające systemy na dwóch niezależnych osiach: szerokości (systemy wąskie lub ogólne) oraz poziomu kompetencji (od nowicjusza, przez eksperta, po poziom nadludzki). W tej taksonomii program AlphaZero jest klasyfikowany jako system wąski o poziomie wirtuozerskim, ponieważ przewyższa wszystkich ludzi w szachach i go, ale nie potrafi wykonać żadnego innego zadania. Modele takie jak GPT-4 czy Gemini zaliczono do „wyłaniającej się AGI”, to jest systemów ogólnych, których kompetencje nie osiągają jeszcze poziomu wykwalifikowanego człowieka we wszystkich dziedzinach. Najwyższym poziomem tej skali jest superinteligencja (ASI), czyli system przewyższający całą ludzkość w każdym zadaniu poznawczym.
+Prognozy dotyczące osiągnięcia przez SI ludzkiego poziomu zmieniały się z biegiem lat. W ankiecie z 2014 roku połowa ekspertów szacowała 50% prawdopodobieństwo osiągnięcia tego poziomu przed 2040 rokiem. W badaniu AI Impacts z 2023 roku, obejmującym ponad 2700 badaczy, mediana prognoz przesunęła się na 2047 rok (50% prawdopodobieństwo osiągnięcia poziomu ludzkiego we wszystkich zadaniach), przy czym 10% respondentów uznało, że nastąpi to przed 2027 rokiem.
+Systemy SI w latach 2023–2025 zdały wiele testów wcześniej zarezerwowanych dla ludzi: GPT-4 uzyskał wynik w górnych 10% na amerykańskim egzaminie adwokackim (Uniform Bar Exam), a kolejne modele zdały egzaminy z medycyny (USMLE), matematyki olimpijskiej i programowania. Wyniki te nie oznaczają jednak osiągnięcia AGI, ponieważ obecne systemy mają trudności z zadaniami wymagającymi rozumowania w nowych kontekstach, planowania długoterminowego i uczenia się z niewielkiej liczby przykładów.
+
+Przyszłość
+
+Superinteligencja i osobliwość

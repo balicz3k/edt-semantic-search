@@ -1,0 +1,27 @@
+Smartfon
+
+Smartfon (ang. smartphone) – przenośne, multimedialne urządzenie, łączące w sobie funkcje telefonu komórkowego i komputera przenośnego (PDA – Personal Digital Assistant). Pierwsze tego typu urządzenie zostało zaprezentowane w 1992 roku. Z biegiem lat smartfony ewoluowały, integrując funkcje m.in. aparatów fotograficznych, nawigacji oraz narzędzi do zarządzania informacjami. Zastąpiły w sprzedaży tradycyjne telefony komórkowe, a rynek urządzeń mobilnych został zdominowany przez systemy operacyjne Android oraz iOS.
+
+Historia
+
+Pierwszy smartfon został zaprezentowany 23 listopada 1992 roku. Było to prototypowe urządzenie o nazwie Simon, które firma IBM pokazała na targach COMDEX i wprowadziła na rynek w 1993 roku. Oprócz standardowych funkcji telefonu komórkowego oferowało ono kalendarz, książkę adresową, kalkulator, notatnik, pocztę elektroniczną i gry. Użytkownik korzystał z urządzenia za pomocą rysika.
+Przez pewien czas stosowano określenie palmofon (ang. PDA Phone, Palm Phone) w odniesieniu do palmtopa z wbudowanym modułem telefonicznym.
+W 1996 roku zadebiutowała seria Nokia Communicator, która spopularyzowała urządzenia łączące cechy telefonu z rozbudowanymi funkcjami edycji dokumentów i fizyczną klawiaturą.
+Pierwszym urządzeniem oficjalnie wprowadzonym do sprzedaży pod marketingową nazwą „smartphone” był zaprezentowany w 2000 roku Ericsson R380, pracujący pod kontrolą systemu Symbian.
+Kolejnym przełomem była premiera telefonu iPhone w 2007 roku, wprowadzająca nowoczesny interfejs zoptymalizowany pod obsługę dotykową bez użycia rysika, oraz debiut systemu Android w 2008 roku (model HTC Dream).
+W październiku 2018 roku zaprezentowano pierwszy składany smartfon firmy Royole. W 2019 roku zadebiutował pierwszy składany smartfon firmy Samsung – Samsung Galaxy Fold.
+
+Funkcje i budowa
+Z biegiem lat smartfony, oprócz funkcji telefonu, zaczęły łączyć funkcje poczty elektronicznej, przeglądarki sieciowej, pagera, nawigacji GPS, jak również cyfrowego aparatu fotograficznego, dyktafonu i kamery wideo, zarządzania informacjami osobistymi (ang. Personal Information Management) oraz obsługę dokumentów biurowych w formatach OOXML (tworzone np. przez programy pakietu Microsoft Office), ODF (np. LibreOffice) i PDF.
+Współczesne urządzenia oparte są najczęściej na jednobryłowej konstrukcji z pojemnościowym ekranem dotykowym. Na rynku funkcjonują również wyspecjalizowane warianty urządzeń, do których należą tzw. smartfony pancerne (ang. rugged smartphones). Są one projektowane do pracy w ekstremalnych warunkach i charakteryzują się wzmocnionymi obudowami wykonanymi z materiałów absorbujących uderzenia. Posiadają certyfikaty odporności, takie jak IP68 lub IP69K (ochrona przed wnikaniem pyłu i zalaniem wodą pod ciśnieniem), a także spełniają normy wojskowe MIL-STD-810H. Konstrukcja ta zapewnia im wytrzymałość na upadki z wysokości, wstrząsy oraz długotrwałe zanurzenie. Część modeli z tej kategorii wykracza poza funkcje typowego smartfona, integrując w jednej obudowie specjalistyczne narzędzia pomiarowe, takie jak kamera termowizyjna, laserowy dalmierz czy miernik poziomu dźwięku, zastępując tym samym osobne urządzenia stosowane m.in. w budownictwie.
+
+Sprzedaż
+
+W 2010 roku sprzedano na świecie około 500 milionów smartfonów. W pierwszym kwartale 2011 roku sprzedano 99,6 miliona sztuk, co w porównaniu z pierwszym kwartałem 2010 roku stanowiło wzrost o 79,7%.
+W I kwartale 2013 roku, według danych IDC, po raz pierwszy sprzedano więcej smartfonów niż tradycyjnych telefonów komórkowych. Smartfony stanowiły 51,6% (łącznie 216,2 miliona sprzedanych egzemplarzy) wszystkich urządzeń komunikacyjnych, które opuściły fabryki.
+Według raportu IDC w I kwartale 2013 roku poszczególni producenci sprzedali następującą liczbę smartfonów: Samsung – 70,7 miliona sztuk, Apple – 37,4 miliona, LG – 10,3 miliona, Huawei – 9,9 miliona, ZTE – 9,1 miliona. 
+W Polsce w 2025 roku około 65% smartfonów sprzedano w handlu detalicznym (poza salonami operatorów). Liderem sprzedaży był Samsung, a za nim uplasowały się Apple i Motorola. Na kolejnych miejscach znalazły się marki: Xiaomi, realme oraz OPPO.
+Shawn DuBravac, badający branżę technologii użytkowych w Stanach Zjednoczonych i współtwórca wskaźnika Smartphone Index na amerykańskiej giełdzie NASDAQ, opisał rynkową rolę tych urządzeń następująco:
+
+Systemy operacyjne
+Systemami operacyjnymi sterującymi urządzeniami są między innymi: Android, iOS, Symbian, Windows 10 Mobile (następca Windows Phone), BlackBerry OS, Sailfish OS oraz Firefox OS. Rynek został niemal całkowicie zdominowany przez systemy Android oraz iOS.

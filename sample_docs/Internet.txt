@@ -1,0 +1,60 @@
+Internet
+
+Internet (skrótowiec od ang. inter-network, dosłownie „między-sieć”) – ogólnoświatowy system połączeń między komputerami, określany również jako sieć sieci. W ujęciu technicznym Internet jest globalnym systemem wzajemnie połączonych sieci komputerowych, korzystających z rodziny protokołów TCP/IP. Łączy on hosty i serwery, którym przydzielane są adresy IP, za pośrednictwem urządzeń sieciowych, takich jak karty sieciowe, modemy i routery, działających w oparciu o infrastrukturę telekomunikacyjną.
+
+Geneza i historia Internetu
+
+Powstanie ARPANET-u i protokołu TCP/IP (lata 60. i 70.)
+
+Internet wywodzi się z prac nad komutacją pakietów, prowadzonych niezależnie w latach 60. XX wieku przez Paula Barana w amerykańskiej RAND Corporation, Donalda Daviesa w brytyjskim National Physical Laboratory oraz Leonarda Kleinrocka na Uniwersytecie Kalifornijskim w Los Angeles. W 1969 roku amerykańska agencja ARPA uruchomiła sieć ARPANET, której pierwsze połączenie zestawiono 29 października 1969 między UCLA a Stanford Research Institute.
+Wbrew rozpowszechnionemu przekonaniu sieci nie zaprojektowano po to, by przetrwała atak nuklearny. Jej zasadniczym celem było współdzielenie zasobów obliczeniowych i połączenie oddalonych od siebie ośrodków badawczych. Kluczowe znaczenie dla dalszego rozwoju miało opracowanie przez Vintona Cerfa i Roberta Kahna rodziny protokołów TCP/IP, która pozwalała łączyć różne sieci w jedną „sieć sieci”. Istotny wkład wniosły też europejskie sieci badawcze. W opracowanym we Francji na początku lat 70. przez Louisa Pouzina systemie CYCLADES wprowadzono datagramy i obarczono odpowiedzialnością za niezawodność transmisji komputery końcowe, co wpłynęło na późniejszą konstrukcję TCP/IP.
+
+Internet, WWW i komercjalizacja (lata 80. i 90.)
+1 stycznia 1983 ARPANET przeszedł na protokoły TCP/IP, co bywa uznawane za symboliczny początek współczesnego Internetu. W tym samym okresie wprowadzono system nazw domenowych (DNS), a w 1985 roku zarejestrowano pierwszą domenę z rozszerzeniem .com, należącą do firmy Symbolics. W drugiej połowie lat 80. głównym szkieletem rozrastającej się sieci stał się amerykański NSFNet.
+Przełomem dla powszechnego użytku Internetu okazał się World Wide Web (WWW), opracowany w latach 1989–1991 w CERNie przez Tima Bernersa-Lee. Połączył on hipertekst z protokołem HTTP i adresami URL, a pierwsza strona internetowa ruszyła w 1991 roku. Upowszechnienie graficznych przeglądarek, w tym Mosaic (1993), oraz zniesienie ograniczeń komercyjnych w sieci zapoczątkowały gwałtowny wzrost liczby użytkowników i boom internetowy przełomu wieków.
+
+Internet szerokopasmowy i mobilny (od XXI wieku)
+W XXI wieku wolniejszy dostęp wdzwaniany ustąpił miejsca łączom szerokopasmowym, a rozpowszechnienie smartfonów i sieci komórkowych sprawiło, że dla wielu użytkowników podstawowym sposobem korzystania z sieci stał się dostęp mobilny. Rozwinęły się media społecznościowe, chmura obliczeniowa i usługi strumieniowe, a liczba użytkowników Internetu przekroczyła w 2024 roku 5,5 miliarda.
+
+Terminologia
+
+Internet a WWW (World Wide Web)
+Internet w ogólnym znaczeniu to sieć komputerowa, czyli wiele połączonych ze sobą komputerów, zwanych również hostami, natomiast WWW to usługa internetowa. Innymi znanymi usługami tego rodzaju są poczta elektroniczna oraz P2P.
+Rozróżnienie pomiędzy siecią a usługami odwołuje się do pojęcia protokołów internetowych, będących określonym zbiorem protokołów komunikacyjnych. Każdy protokół komunikacyjny jest logicznie podzielony na tzw. warstwy: warstwa niższa zapewnia funkcjonalność wymaganą przez najbliższą warstwę wyższą, dodając jednocześnie własne dane pomocnicze i kontrolne. Internet to sieć komputerowa wykorzystująca protokół IP (ang. Internet Protocol). Natomiast usługa WWW wykorzystuje protokół HTTP (ang. HyperText Transfer Protocol), działający w warstwie wyższej, dla której nośną jest warstwa protokołu IP. Protokół HTTP określany jest też mianem „protokołu warstwy aplikacji” z tego względu, że stanowi on warstwę nośną dla danych tworzonych przez oprogramowanie użytkowe, zwane aplikacjami.
+
+Pisownia
+Słowo „Internet” w języku polskim pisze się wielką literą, mając na myśli konkretną, globalną sieć komputerową – jest to wtedy nazwa własna. W niektórych przypadkach dopuszczalna normatywnie jest jednak pisownia małą literą – gdy pisze się o Internecie jako nośniku (medium) informacyjnym, np. „przeczytałem to w internecie” lub w odniesieniu do rodzaju łącza telekomunikacyjnego, np. „internet mobilny”, „internet przewodowy”, „internet ADSL”. Czasami używa się też słowa „internet” pisanego małą literą w odniesieniu do pojęcia ekstranetu, czyli połączonej ze sobą grupy sieci komputerowych.
+
+Infrastruktura i działanie
+
+Internet nie ma centralnego ośrodka zarządzającego. Tworzą go dziesiątki tysięcy niezależnych sieci, nazywanych systemami autonomicznymi (AS), które wymieniają między sobą ruch na podstawie umów handlowych, m.in. w neutralnych punktach wymiany ruchu (IXP). Globalny zasięg sieci zapewniają wielcy operatorzy sieci szkieletowych (tzw. operatorzy Tier 1) oraz podmorskie kable telekomunikacyjne, którymi przesyłana jest przeważająca część (ponad 95%) międzykontynentalnego ruchu danych.
+Przydziałem adresów IP i numerów systemów autonomicznych zarządzają regionalne rejestry internetowe, takie jak europejskie RIPE NCC. Odnajdywanie zasobów ułatwia system nazw domenowych (DNS), który tłumaczy czytelne dla człowieka nazwy domen na adresy IP. Coraz większa część treści i usług jest przechowywana oraz przetwarzana w dużych centrach danych, stanowiących zaplecze chmury obliczeniowej.
+
+Usługi internetowe
+Dostawca usług internetowych (ISP, z ang. Internet Service Provider) zapewnia użytkownikom łącze, a często także usługi dodatkowe, takie jak konto pocztowe, hosting stron internetowych, serwer plików (FTP lub SFTP) czy filtr rodzinny ograniczający dostęp do treści uznanych za niebezpieczne. Koszt tych usług bywa wliczony w opłatę podstawową.
+Sam Internet udostępnia szerokie spektrum usług działających w warstwie aplikacji. Najpowszechniejsze z nich to World Wide Web, poczta elektroniczna oraz komunikacja w czasie rzeczywistym za pomocą komunikatorów, rozmów IRC i telefonii VoIP. Internet umożliwia też wymianę plików, w tym w modelu P2P, oraz transmisje strumieniowe obejmujące radio i telewizję internetową, wideo i telekonferencje. Na infrastrukturze sieci opiera się również wiele usług gospodarczych i społecznych, takich jak sklepy i aukcje internetowe, bankowość elektroniczna, gry online, grupy i fora dyskusyjne oraz biblioteki cyfrowe. Część z nich jest płatna.
+Współczesny Internet w coraz większym stopniu opiera się na usługach świadczonych zdalnie. W modelu chmury obliczeniowej dostawcy udostępniają przez sieć moc obliczeniową, przestrzeń dyskową i oprogramowanie, a najczęściej pobierane treści rozprowadzają sieci dostarczania treści (CDN). Współpracę między aplikacjami i serwisami zapewniają interfejsy programowania aplikacji (API). Do sieci podłącza się też coraz więcej przedmiotów codziennego użytku w ramach internetu rzeczy (IoT), a rosnące znaczenie zyskują usługi oparte na sztucznej inteligencji.
+
+Bezpieczeństwo i prywatność
+Powszechność Internetu uczyniła z cyberbezpieczeństwa jedno z kluczowych wyzwań. Użytkownicy i organizacje są narażeni na złośliwe oprogramowanie, w tym szyfrujące dane dla okupu ransomware, oraz na ataki socjotechniczne, takie jak phishing, polegający na podszywaniu się pod zaufane podmioty w celu wyłudzenia danych logowania lub środków. Według Agencji Unii Europejskiej ds. Cyberbezpieczeństwa (ENISA) ataki ransomware oraz wymierzone w dostępność usług należą do najpoważniejszych zagrożeń.
+Podstawowym mechanizmem ochrony przesyłanych danych jest szyfrowanie. Protokół HTTPS, wykorzystujący TLS, zabezpiecza dziś większość ruchu między przeglądarkami a serwisami WWW, utrudniając podsłuch i modyfikację treści. Odrębną kwestią jest ochrona prywatności i danych osobowych gromadzonych przez serwisy internetowe. W Unii Europejskiej reguluje ją ogólne rozporządzenie o ochronie danych (RODO), obowiązujące od 2018 roku.
+
+Wpływ społeczny
+Internet zmienił sposób komunikowania się, pracy, handlu i dostępu do informacji, a media społecznościowe umożliwiły masowe tworzenie i rozpowszechnianie treści przez samych użytkowników. Na infrastrukturze sieci wyrosła gospodarka cyfrowa, w której pośredniczące platformy kojarzą usługodawców z odbiorcami w handlu, transporcie i mediach.
+Łatwość publikowania niesie również zagrożenia. Przedmiotem rosnącej uwagi jest dezinformacja, czyli celowe rozpowszechnianie fałszywych treści, oraz mechanizm baniek filtrujących, w których algorytmy personalizujące zawężają użytkownika do treści zgodnych z jego dotychczasowymi wyborami. Mimo globalnego zasięgu sieci utrzymuje się przepaść cyfrowa, ograniczająca dostęp do jej możliwości w uboższych regionach świata.
+
+Zaburzenia związane z nadmiernym korzystaniem z Internetu
+Z intensywnym korzystaniem z Internetu bywają wiązane zaburzenia o charakterze behawioralnym, choć ich status diagnostyczny pozostaje przedmiotem debaty naukowej. Jedynym formalnie uznanym zaburzeniem tego rodzaju jest ujęte przez Światową Organizację Zdrowia w klasyfikacji ICD-11 (przyjętej w 2019 roku, obowiązującej od 2022) zaburzenie związane z graniem (ang. gaming disorder), definiowane jako utrata kontroli nad graniem i przedkładanie go nad inne czynności mimo negatywnych następstw. Może ono dotyczyć także gier prowadzonych przez Internet.
+Wraz z upowszechnieniem smartfonów i mediów społecznościowych przedmiotem badań stało się problematyczne korzystanie ze smartfona, określane też jako fonoholizm, oraz nomofobia, czyli lęk przed pozostawaniem bez dostępu do telefonu. Zjawiska te, mimo rosnącej liczby badań i powszechnego występowania objawów, nie są jak dotąd odrębnymi jednostkami chorobowymi w obowiązujących klasyfikacjach medycznych. Z korzystaniem z sieci łączona jest też cyberchondria, czyli nasilanie lęku o zdrowie wskutek wyszukiwania informacji medycznych w Internecie.
+
+Internet na świecie
+
+Według Międzynarodowego Związku Telekomunikacyjnego (ITU) w 2024 roku z Internetu korzystało około 5,5 miliarda ludzi, czyli mniej więcej 68% ludności świata, podczas gdy około 2,6 miliarda osób pozostawało bez dostępu. Utrzymuje się wyraźna przepaść cyfrowa: w krajach o wysokich dochodach z sieci korzystało około 93% mieszkańców, a w krajach o niskich dochodach jedynie około 27%. Coraz większa część użytkowników łączy się z Internetem za pośrednictwem sieci komórkowych i smartfonów.
+
+Polska
+
+30 lipca 1990 w Centrum Komputerowym Uniwersytetu Kopenhaskiego zarejestrowano krajową domenę najwyższego poziomu „.pl”.
+Łącze analogowe, przekształcone później w sieć internetową, zostało uruchomione 26 września 1990 r. i miało prędkość 9600 bit/sek. Pierwszy email w tej sieci został przesłany 20 listopada 1990 roku, wysłany z CERNu (Międzynarodowego Ośrodka Badań Jądrowych) w Genewie przez dr. Grzegorza Poloka i mgr Pawła Jałocha do mgr inż. Andrzeja Sobala w Krakowie. Internet w Polsce dostępny jest oficjalnie od 20 grudnia 1991 roku.
+17 sierpnia 1991 z Wydziału Fizyki Uniwersytetu Warszawskiego zestawiono pierwsze, trwające 1 minutę, połączenie internetowe przy wykorzystaniu protokołu TCP/IP, z Centrum Komputerowym Uniwersytetu w Kopenhadze.
+15 grudnia 1991 Stany Zjednoczone zniosły ograniczenia w łączności z Polską, a 20 grudnia placówki naukowe Uniwersytetu Warszawskiego, Instytut Fizyki Jądrowej i Obserwatorium Astronomiczne oraz pojedyncze komputery w Krakowie, Toruniu i Katowicach zostały podłączone do Internetu.
+W czerwcu 1991 została uruchomiona sieć szkieletowa POLPAK Telekomunikacji Polskiej. W roku 1992, jako pierwsza polska firma, ATM S.A. uzyskała dostęp do Internetu. W sierpniu 1993 roku powstał pierwszy polski serwer WWW, na którym była m.in. „Polska Strona Domowa”. W 1992 roku powstała pierwsza polska strona internetowa internet.pl, następnie w 1995 roku powstał polski portal internetowy Wirtualna Polska. W kwietniu 1996 roku TP S.A. uruchomiła anonimowy dostęp do Internetu z wykorzystaniem modemów.

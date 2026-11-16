@@ -1,0 +1,159 @@
+Python
+
+Python – język programowania wysokiego poziomu ogólnego przeznaczenia. Posiada rozbudowany pakiet bibliotek standardowych, którego ideą przewodnią jest czytelność i klarowność kodu źródłowego. Jego składnia cechuje się przejrzystością i zwięzłością.
+Python wspiera różne paradygmaty programowania: obiektowy, imperatywny oraz w mniejszym stopniu funkcyjny. Posiada w pełni dynamiczny system typów i automatyczne zarządzanie pamięcią, będąc w tym podobnym do języków Perl, Ruby, Scheme czy Tcl. Podobnie jak inne języki dynamiczne jest często używany jako język skryptowy. Interpretery Pythona są dostępne na wiele systemów operacyjnych.
+Python rozwijany jest jako projekt Open Source zarządzany przez Python Software Foundation, która jest organizacją non-profit. Standardową implementacją języka jest CPython (napisany w C), ale istnieją też inne, np. Jython (napisany w Javie), CLPython napisany w Common Lisp, IronPython (na platformę .NET) i PyPy (napisany w Pythonie, zob. bootstrap).
+
+Rozwój języka
+
+Pythona stworzył we wczesnych latach 90. Guido van Rossum – jako następcę języka ABC, stworzonego w Centrum voor Wiskunde en Informatica (CWI – Centrum Matematyki i Informatyki w Amsterdamie). Van Rossum jest głównym twórcą Pythona, choć spory wkład w jego rozwój pochodzi od innych osób. Z racji kluczowej roli, jaką van Rossum pełnił przy podejmowaniu ważnych decyzji projektowych, często określano go przydomkiem „Benevolent Dictator for Life” (BDFL).
+Nazwa języka nie pochodzi od zwierzęcia, lecz od serialu komediowego emitowanego w latach 70. przez BBC – „Monty Python’s Flying Circus” (Latający cyrk Monty Pythona). Projektant, będąc fanem serialu i poszukując nazwy krótkiej, unikalnej i nieco tajemniczej, uznał tę za świetną.
+Wersja 1.2 była ostatnią wydaną przez CWI. Od 1995 roku Van Rossum kontynuował pracę nad Pythonem w Corporation for National Research Initiatives (CNRI) w Reston w Wirginii, gdzie wydał kilka wersji Pythona, do 1.6 włącznie. W 2000 roku van Rossum i zespół pracujący nad rozwojem jądra Pythona przenieśli się do BeOpen.com, by założyć zespół BeOpen PythonLabs. Pierwszą i jedyną wersją wydaną przez BeOpen.com był Python 2.0.
+Po wydaniu wersji 1.6 i opuszczeniu CNRI przez van Rossuma, który zajął się programowaniem komercyjnym, uznano za wysoce pożądane, by Pythona można było używać z oprogramowaniem dostępnym na licencji GPL. CNRI i Free Software Foundation (FSF) podjęły wspólny wysiłek w celu odpowiedniej modyfikacji licencji Pythona. Wersja 1.6.1 była zasadniczo identyczna z wersją 1.6, z wyjątkiem kilku drobnych poprawek oraz licencji, dzięki której późniejsze wersje mogły być zgodne z licencją GPL. Python 2.1 pochodzi zarówno od wersji 1.6.1, jak i 2.0.
+Po wydaniu Pythona 2.0 przez BeOpen.com Guido van Rossum i inni programiści z PythonLabs przeszli do Digital Creations. Cała własność intelektualna dodana od tego momentu, począwszy od Pythona 2.1 (wraz z wersjami alpha i beta), jest własnością Python Software Foundation (PSF), niedochodowej organizacji (non-profit) wzorowanej na Apache Software Foundation.
+W 2008 roku został wydany Python 3.0, który był dużą zmianą i nie był w pełni wstecznie kompatybilny z wcześniejszymi wersjami. 
+Na rok 2026 organizacja Python Software Foundation wspiera wersje Python 3.10, 3.11, 3.12, 3.13 oraz 3.14, zgodnie z corocznym cyklem wydawniczym projektu i pięcioletnią polityką wsparcia. Python 3.15 znajduje się obecnie w fazie rozwoju alfa, a stabilne wydanie jest oczekiwane w październiku 2026 roku. Wcześniejsze wersje z serii 3.x nie otrzymują już aktualizacji bezpieczeństwa.
+Python jest jednym z najczęściej wykorzystywanych języków w uczeniu maszynowym, analizie danych, automatyzacji oraz tworzeniu aplikacji internetowych. Jest powszechnie nauczany jako język wprowadzający do programowania. Od 2003 roku Python znajduje się w pierwszej dziesiątce najpopularniejszych języków programowania.
+
+Filozofia Pythona
+Python realizuje jednocześnie kilka paradygmatów. Podobnie do C++, a w przeciwieństwie do Smalltalka, nie wymusza jednego stylu programowania, pozwalając na stosowanie różnych. W Pythonie możliwe jest programowanie obiektowe, programowanie strukturalne i programowanie funkcyjne. Typy sprawdzane są dynamicznie, a do zarządzania pamięcią stosuje się garbage collection.
+Choć w jego popularyzacji kładzie się nacisk na różnice w stosunku do Perla, Python jest pod wieloma względami do niego podobny. Jednakże projektanci Pythona odrzucili złożoną składnię Perla na rzecz bardziej oszczędnej i – ich zdaniem – bardziej czytelnej. Mimo że podobnie do Perla, Python jest czasem klasyfikowany jako język skryptowy, wykorzystuje się go do tworzenia dużych projektów jak serwer aplikacji Zope, system wymiany plików Mojo Nation, czy nawet oprogramowanie klasy ERP – Odoo.
+
+Typy i struktury danych
+
+W Pythonie wartości, a nie zmienne, posiadają typ – tak więc Python jest językiem z typami dynamicznymi, podobnie jak Lisp, a w przeciwieństwie do Javy. W przeciwieństwie do wielu języków, wartości nie są przekazywane ani przez wartość, ani przez referencję, ale przez przypisanie.
+W porównaniu z innymi językami programowania Python jest dość silnie typowany. Nie jest ani tak liberalny jak Perl, ani tak restrykcyjny jak OCaml. Reguły składniowe Pythona umożliwiają wyrażanie pojęć bez pisania dodatkowego kodu. Dla typów numerycznych zdefiniowana jest automatyczna konwersja, tak więc możliwe jest np. mnożenie liczby zespolonej przez liczbę całkowitą typu long bez rzutowania. Jednak w przeciwieństwie do Perla nie ma np. automatycznej konwersji pomiędzy napisami i liczbami; liczba nie jest prawidłowym argumentem dla operacji napisowej.
+Python oferuje szeroki zakres podstawowych typów danych – w tym typy liczbowe (całkowite, zmiennoprzecinkowe, zespolone) oraz kolekcje.
+
+Wybrane wbudowane typy danych
+
+Kolekcje
+Część wyżej wymienionych typów to kolekcje.
+Listy, krotki (ang. tuple) i napisy są sekwencjami, w związku z czym udostępniają pewną liczbę wspólnych operacji (np. w identyczny sposób można iterować po kolejnych znakach napisu jak po elementach listy, czy też wskazywać elementy za pomocą indeksów). Listy to tablice o zmiennej liczbie elementów (z możliwością ich usuwania, dodawania i podmiany), zaś krotki to tablice o stałej liczbie elementów (bez możliwości usuwania, dodawania i podmiany).
+Innymi typami są kolekcje nieuporządkowane: słowniki (ang. dictionary, typ dict) – znane w innych językach jako odwzorowania (ang. map) lub tablice asocjacyjne oraz zbiory (ang. set) reprezentowane przez dwa typy: zbioru zmiennego set i niezmiennego frozenset. Słownikowe klucze oraz elementy zbiorów muszą być tzw. obiektami haszowalnymi (posiadającymi metodę __hash__()) – co na ogół oznacza, że muszą być niezmienne (niemutowalne); np. kluczem słownika nie może być lista ani zbiór zmienny (typu set) – może zaś być krotka bądź zbiór niezmienny (typu frozenset), o ile zawiera wyłącznie elementy niezmienne.
+Python obsługuje typowy zestaw operacji na łańcuchach tekstowych. Łańcuchy w Pythonie są niezmienne. Każda operacja, która zmieniłaby zawartość napisu (np. zamiana małych liter na wielkie) zwróci nowy napis, pozostawiając oryginalny napis bez zmian.
+Należy dodać, że podstawowe kolekcje w standardowej implementacji Pythona w C są wysoce zoptymalizowane pod kątem szybkości przeszukiwania, sortowania itp.
+
+Wszystko jest obiektem
+System typów w Pythonie jest ściśle związany z systemem klas. W Pythonie wszystkie wartości są obiektami, a typy wbudowane stanowią klasy, które mogą być rozszerzane przez dziedziczenie. Umożliwia to tworzenie klas pochodnych między innymi od typów str, dict, list czy int. Język obsługuje również dziedziczenie wielokrotne.
+Język umożliwia rozległą introspekcję typów i klas. Typy można odczytywać i porównywać – podobnie, jak w Smalltalku, typy (opisy typów) też są typem. Atrybuty obiektu można pobrać jako słownik.
+W Pythonie nie ma enkapsulacji, jak to ma miejsce w C++ czy Javie, istnieją jednak mechanizmy pozwalające osiągnąć zbliżony efekt. Jednocześnie Python znacząco ułatwia introspekcję obiektów, tak więc właściwe użycie atrybutów obiektu pozostawia się programiście.
+Dodatkowo każda funkcja, klasa i moduł mogą zostać opatrzone dokumentacją w kodzie źródłowym. Nie posiada ona wprawdzie rozbudowanych funkcji podobnych do javadoc, ale jest dostępna w czasie wykonania programu, a więc i w trybie interaktywnym.
+
+Emulowanie typów, przeciążanie operatorów, wywoływanie jako funkcje
+Python pozwala dopasowywać własności danej klasy w szerokim zakresie. Implementując odpowiednie metody można sprawić, by obiekty danej klasy zachowywały się jak kolekcje, liczby, a nawet funkcje.
+Przykład:
+
+Uruchomienie powyższego kodu da następujący rezultat:
+
+Ten Emulator wywołano jako funkcję z parametrem x = abc
+Ten Emulator wywołano jako funkcję z parametrem x = 123
+def-ty element w kontenerze klasy Emulator
+456-ty element w kontenerze klasy Emulator
+
+Zmienna liczba argumentów funkcji
+Możliwe jest tworzenie funkcji ze zmienną liczbą argumentów, argumentami o wartościach domyślnych (podobnie jak w C++ lub C#), a także wywoływanie funkcji z użyciem argumentów nazwanych, z podaniem nazw parametrów.
+Przykład:
+
+Uruchomienie powyższego kodu da następujący rezultat:
+
+x=abc, y=123
+Argumenty pozycyjne:
+456
+def
+Argumenty nazwane:
+k=789
+m=ghi
+
+Składnia
+Czytanie kodu zajmuje wielokrotnie więcej czasu niż pisanie, a czytelny program można łatwiej zrozumieć i rozwijać. Python został zaprojektowany tak, by zapewnić możliwie dużą czytelność kodu źródłowego. Posiada prosty układ tekstu, używa wcięć lub angielskich słów tam, gdzie inne języki korzystają ze znaków interpunkcyjnych i posiada zdecydowanie mniej konstrukcji składniowych, niż wiele języków strukturalnych, takich jak C, Perl czy Pascal.
+Dla czytelności, w Pythonie występują tylko dwa rodzaje pętli: for, w której iteracja odbywa się po elementach listy (jak w perlowym foreach), oraz while, która jest powtarzana, dopóki warunek logiczny jest spełniony. Python nie posiada składni for w stylu C, do...while, ani perlowego until, choć można uzyskać ich złożone odpowiedniki.
+Od wersji 2.5 Python posiada operator warunkowy, analogiczny do warunek ? wartość1 : wartość2 znanego z C i Javy. Składnia: wartość1 if warunek else wartość2.
+
+Struktura przez wcięcia
+Cechą wyróżniającą Pythona spośród innych języków jest stosowanie wcięć do wydzielania bloków kodu. Jest to cecha unikatowa wśród powszechnie stosowanych języków programowania, jako pierwsza rzucająca się w oczy programistom niepiszącym w Pythonie.
+W językach programowania wywodzących strukturę blokową od Algola (niekoniecznie bezpośrednio) – np. Pascalu, C, czy Perlu – bloki kodu zaznaczane są klamrami lub słowami kluczowymi (C i Perl używają { }, Pascal używa begin i end). Jednakże we wszystkich tych językach programiści tradycyjnie stosują wcięcia, by wyróżnić bloki w otaczającym kodzie.
+Natomiast Python dziedziczy cechę mniej znanego języka ABC – zamiast interpunkcji czy słów kluczowych używa samych wcięć do zaznaczania bloków. Wyjaśnić to można na prostym przykładzie zamieszczonym poniżej. Przedstawiona jest w nim funkcja licząca silnię w C i w Pythonie:
+silnia w C (zapisana bez wcięć):
+
+silnia w Pythonie:
+
+Dla niektórych programistów przyzwyczajonych do języków stylistycznie wzorowanych na Algolu, gdzie spacja nie ma znaczenia składniowego, może to być mylące. Spotyka się czasem niepochlebne porównanie do sztywnego systemu kolumnowego kart perforowanych stosowanego w czasach fortranowych.
+Istotnie, w swoim czasie możliwość stosowania zapisu, w którym decydujące były jedynie symbole, była dużym postępem. Jednak dla programistów piszących w Pythonie stosowanie składniowo znaczących wcięć jest po prostu przedłużeniem konwencji, która i tak jest stosowana np. w C. Zwolennicy tego języka zwracają także uwagę na wadę „swobodnej” składni, polegającą na tym, że skoro wcięcia kodu są ignorowane, nie można wymusić jednej dobrej konwencji (stąd też konflikty między programistami, dotyczące stosowania spacji (i różnej ich liczby) lub tabulatorów, tzw. indentation wars). Nieprawidłowo wcięty kod może być mylący, gdyż czytający go programista i kompilator mogą go różnie zinterpretować.
+
+Komentarze
+Komentarze zaczynają się od znaku „#” i kończą z końcem wiersza. Komentarze wieloliniowe można wstawiać w postaci wielowierszowych stringów (ograniczonych przez """ lub ''') bez żadnych działań (np. przypisań); stringi te nie są traktowane jako wyrażenia przez interpreter.
+Wielowierszowy string umieszczony w pierwszej linii ciała funkcji lub klasy albo na początku modułu, traktowany jest jako tzw. docstring (napis dokumentacyjny) dla tegoż obiektu. System dokumentacji Pythona może automatycznie tworzyć sformatowaną dokumentację z docstringów, dając w ten sposób ograniczoną wersję literate programming. Dokumentację można przeglądać w trybie interaktywnym interpretera za pomocą funkcji help lub z poziomu wiersza poleceń za pomocą skryptu pydoc.
+
+Programowanie funkcyjne
+Inną cechą Pythona jest dostępność składni funkcyjnej. Jak można oczekiwać, upraszcza to znacznie obróbkę list i innych kolekcji. Jedną z takich konstrukcji jest lista składana (ang. list comprehension), przejęte z funkcjonalnego Haskella, jak w przedstawionym poniżej przykładzie obliczania pięciu pierwszych potęg dwójki:
+
+Za pomocą list składanych można wyrazić algorytm quicksort,
+chociaż taka jego implementacja jest mało wydajna:
+
+Wykorzystując programowanie funkcyjne, można skrócić implementację silni do jednolinijkowca bez uciekania się do rekurencji. W poniższym przykładzie użyto operacji redukcji listy:
+
+Lambda
+Nieco mylące dla zwolenników programowania funkcyjnego może być słowo kluczowe lambda. Bloki lambda mogą zawierać jedynie wyrażenia, nie instrukcje. Nie są one więc najbardziej ogólnym sposobem tworzenia funkcji. Zamiast tego można zdefiniować i zwrócić funkcję, używając nazwy w zasięgu lokalnym, jak w poniższym przykładzie prostej funkcji generującej inną funkcję (ang. curry):
+
+Funkcję tę można zaimplementować także, używając zagnieżdżonych wyrażeń lambda tak, jak to się robi w Scheme:
+
+Oba warianty funkcji zbuduj_sumator zachowują się identycznie: dla podanej liczby x zwracają funkcję, która dla podanej liczby y wydrukuje wyrażenie arytmetyczne. Choć pierwszy styl jest częściej spotykany, drugi może być czytelniejszy dla programistów wyspecjalizowanych w programowaniu funkcyjnym.
+Unikalne cechy pythonowych operatorów logicznych and i or dają jeszcze jedną unikalną możliwość programowania funkcyjnego. Przy wykorzystaniu tych dwóch operatorów można w wyrażeniach lambda zaimplementować dowolne sterowanie przebiegiem . Wykorzystuje się to zwykle tylko do stosunkowo prostych konstrukcji (patrz rozdział o operatorach logicznych).
+
+Generatory
+Generatory są w Pythonie mechanizmem leniwej ewaluacji funkcji, która w przeciwnym razie musiałaby zwracać obciążającą pamięć lub kosztowną w obliczaniu listę. Stosowanie generatorów jest podobne do strumieni w Scheme:
+
+Można teraz użyć tego generatora:
+
+Definicja generatora przypomina definicję funkcji, ale zamiast słowa kluczowego return używa się yield. Jednakowoż generator jest obiektem przechowującym stan, mogącym wielokrotnie wchodzić do i opuszczać ten sam dynamiczny zakres. Wywołanie generatora może być użyte zamiast listy lub innej struktury, po której elementach będziemy iterować. Za każdym razem, gdy pętla for w powyższym przykładzie potrzebuje następnego elementu, wywoływany jest generator, który daje następny element.
+W wersji 2.4 dodano wyrażenia generatorowe (ang. generator expressions), analogiczne do listy składanej. Zapis:
+
+jest odpowiednikiem:
+
+Operatory logiczne
+W Pythonie jako fałsz logiczny traktuje się:
+
+liczbę zero (0, 0.0, 0j itp.)
+False
+None (null)
+puste kolekcje ([], (), {}, set() itp.)
+puste napisy ("", """""")
+obiekty posiadające metodę __bool__(), jeśli zwraca ona False
+Wszystko inne jest prawdą logiczną.
+Operatory and i or zwracają wartość ostatnio obliczonego wyrażenia, np. „x==5 or 3” zwróci 3. W Pythonie często pisze się instrukcje w rodzaju print(p or q), by wykorzystać tę cechę.
+Wartości logiczne zwracane przez operatory porównania (==, >, !=, is itp.), operator zawierania (in) oraz operator negacji (not) reprezentowane są przez obiekty True i False. Gdyby więc w powyższym przykładzie kolejność wyrażeń zamienić na „3 and x==5”, zwrócona zostałaby wartość True, gdyż tak ewaluowane jest x==5. Operatory porównania można łączyć, np. „-1 < x < 0” zwróci True dla x z przedziału (-1, 0) – tak, jak w zapisie matematycznym, a inaczej niż np. w C++.
+Od Pythona 2.3 True i False są wbudowanymi obiektami typu bool. Wcześniej do identyfikatorów tych przypisane były obiekty liczb całkowitych, odpowiednio 1 i 0.
+
+Obsługa wyjątków
+Python udostępnia i intensywnie wykorzystuje obsługę wyjątków jako sposób wykrywania błędów.
+Styl programowania w Pythonie zaleca stosowanie wyjątków zawsze, gdy może pojawić się błąd wykonania. Na przykład nie testuje się praw dostępu do pliku przed jego otwarciem, lecz po prostu próbuje się go otworzyć, przechwytując wyjątek w razie braku dostępu.
+Obsługa wyjątków jest możliwa za pomocą wyrażenia try-except. 
+
+Poniżej znajduje się kod, który oczekuje od użytkownika podania liczby. Jeśli zostanie podana inna wartość (np. „xyz”), to kod wypisuje informację o błędzie i prosi o podanie nowej wartości.Wyrażenie try-except działa w następujący sposób:
+najpierw wykonywany jest kod znajdujący się w bloku try.
+jeśli nie wystąpi wyjątek, to kod znajdujący się w bloku except zostanie pominięty.
+jeśli w czasie wykonywania kodu z bloku try pojawi się wyjątek, to pozostałe operacje z tego bloku zostaną pominięte.
+jeśli typ wyjątku odpowiada określonemu w klauzuli except (na podstawie powyższego przykładu: ValueError), to wykonywany jest kod określony w bloku except.
+jeśli pojawi się wyjątek, który nie został określony w klauzuli except, to jest on przekazywany do nadrzędnych wyrażeń try. W przypadku kiedy żaden z bloków try-except dostępnych w programie nie przechwytuje danego wyjątku, to jest on nazywany nieobsłużonym wyjątkiem (ang. unhandled exception). W takiej sytuacji wykonanie programu zakończy się z błędem.
+
+Dekoratory
+W wersji 2.4 wprowadzono nowy element składni – notację dekoratora. Przykład: w starszych wersjach Pythona, by uzyskać metodę statyczną klasy, należało napisać:
+
+Notacja dekoratora pozwala, bardziej czytelnie, umieścić informację o konwersji (dekoracji) przed definicją funkcji:
+
+Ogólnie zapis:
+
+jest równoważny zapisowi:
+
+Biblioteka standardowa
+Python posiada rozbudowaną bibliotekę standardową, umożliwiającą jego stosowanie do wielu zadań. Twórcy języka stosują politykę tzw. Batteries Included, czyli dostarczenia wraz z pakietem instalacyjnym możliwie dużej liczby narzędzi. Moduły standardowej biblioteki można uzupełniać modułami pisanymi w C lub w Pythonie. Biblioteka standardowa jest szczególnie dobrze dostosowana do tworzenia aplikacji sieciowych, jako że obsługuje znaczną liczbę standardowych formatów i protokołów (np. MIME, HTTP). Dołączone są także moduły do tworzenia GUI (na bazie Tcl/Tk), obróbki wyrażeń regularnych, nawet prosty serwer WWW z obsługą CGI.
+Większa część biblioteki standardowej dostępna jest na wszystkich platformach, dzięki czemu nawet duże aplikacje mogą często być uruchamiane bez konieczności modyfikacji na Uniksach, pod Windows, na Macintoshu i innych platformach. Przeciwnie, niż np. dla Javy, nie ogranicza się zestawu dostępnych funkcji do części wspólnej dla różnych platform; np. na uniksach dostępna jest funkcja os.fork(), choć nie ma jej np. w Windows.
+
+Standardy dla bibliotek „zewnętrznych”
+Podobnie, jak w wypadku innych języków, opracowany został szereg standardów tworzenia API pomocniczego, np. sterowników relacyjnych baz danych. Ze względu na w pełni dynamiczny system typów nie ma konieczności dołączania do biblioteki standardowej „interfejsu bazowego”, jak to ma miejsce np. w przypadku JDBC. Twórca biblioteki zewnętrznej musi po prostu zapewnić, by stworzone przez niego moduły, funkcje i klasy posiadały odpowiednie atrybuty.
+
+Inne cechy
+
+Interpreter Pythona posiada także tryb interaktywny, w którym wyrażenia można wprowadzać z terminala, otrzymując natychmiast wyniki. Zgodnie z założeniem twórców Pythona ułatwiać ma to naukę programowania, gdyż pozwala wypróbowywać fragmenty kodu ze skutkiem natychmiastowym. Standardowy shell nie jest jednakże zbyt wygodny ani nie posiada zbyt wielu funkcji (brak np. uzupełniania TAB-em) – braków tych jest pozbawiony IPython, będący częścią pakietu SciPy.
+Wraz z Pythonem rozpowszechniana jest także biblioteka unittest do testów jednostkowych, pozwalająca na tworzenie wyczerpujących testów poprawności tworzonego oprogramowania.

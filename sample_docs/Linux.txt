@@ -1,0 +1,128 @@
+Linux
+
+Linux (/ˈlɪnəks/) – rodzina unixopodobnych systemów operacyjnych opartych na jądrze Linux. Linux jest jednym z przykładów wolnego i otwartego oprogramowania (FOSS): jego kod źródłowy może być dowolnie wykorzystywany, modyfikowany i rozpowszechniany. Od kwietnia 2017 roku Android (z zaadaptowanym jądrem Linuxa) oficjalnie jest najpopularniejszym systemem operacyjnym na świecie.
+Pierwsza wersja jądra Linux została udostępniona publicznie 17 września 1991 dla architektury komputera PC, wykorzystującego mikroprocesor o architekturze IA-32. Do jądra dołączono narzędzia systemowe zwane też „Development Kit” oraz biblioteki z projektu GNU, aby otrzymać nadający się do użytku system operacyjny. Z tego powodu powstała też alternatywna nazwa kompletnego systemu: GNU/Linux. Jest udostępniany w formie dystrybucji Linuksa, składających się z jądra (niekiedy zmodyfikowanego w stosunku do oficjalnej wersji) i zestawu pakietów oprogramowania dobranego do różnorodnych wymagań. Dystrybucje zawierają głównie oprogramowanie na licencjach FLOSS, jednak najczęściej zawierają też lub pozwalają na doinstalowanie pewnej liczby programów na licencjach własnościowych.
+Jednym z zastosowań Linuksa są środowiska serwerowe, dla których komercyjne wsparcie oferują firmy komputerowe, jak IBM, Oracle, Dell, Microsoft, Hewlett-Packard, Red Hat i Novell. Linux instalowany jest na różnorodnym sprzęcie komputerowym, np. komputerach biurkowych, superkomputerach i systemach wbudowanych, jak telefony komórkowe, routery oraz telewizory (np. LG, Samsung).
+
+Historia rozwoju
+
+Historia Linuxa rozpoczęła się w 1991 roku, kiedy to fiński programista, Linus Torvalds poinformował na grupie dyskusyjnej Miniksa o hobbystycznym tworzeniu przez siebie niedużego, wolnego systemu operacyjnego, przeznaczonego dla procesorów z rodzin i386 oraz i486.
+
+Linus stworzył jednak tylko jądro, pełny system operacyjny potrzebował jeszcze powłoki systemowej, kompilatora, bibliotek itp. W roli większości z tych narzędzi użyto oprogramowania GNU, co jednak w przypadku niektórych komponentów systemu wymagało poważnych zmian, niekiedy finansowanych przez Projekt GNU, niekiedy dokonanych już wcześniej przez Linusa Torvaldsa.
+Dużo pracy wymagało także zintegrowanie systemu do postaci dystrybucji, które umożliwiały zainstalowanie go w stosunkowo prosty sposób. Jednymi z pierwszych były opublikowany 16 lipca 1993 Slackware Linux czy założony miesiąc później Debian, nazywający siebie GNU/Linuksem.
+
+Nazwa
+
+Etymologia
+Sama nazwa pochodzi ze zbitki słów Linus (będącego imieniem twórcy) i Unix. Później pojawiło się też rozwinięcie nazwy Linux w akronim rekurencyjny Linux Is Not UniX (pol. Linux To Nie Jest UniX).
+Twórcą nazwy Linux jest Ari Lemmke, administrator serwera ftp://ftp.funet.fi/, na którym umożliwił Torvaldsowi publiczne udostępnienie kodu źródłowego jego systemu. Nie podobała mu się jednak proponowana początkowo przez Linusa nazwa „Freax” (Freax = free + freak + [uni]X) i zaproponował właśnie znaną dziś powszechnie nazwę „Linux”. W lutym 1992 założył on również grupę dyskusyjną comp.os.linux w głównej hierarchii Usenetu, która miała przejąć ruch z grupy alt.os.linux działającej od stycznia 1992 w hierarchii alternatywnej. Obie grupy istnieją do tej pory.
+
+Nazwa Linux w języku polskim
+Rada Języka Polskiego proponuje dwojaką pisownię nazwy „Linux” przy odmianie przez przypadki. Rozróżnienie to polega albo na zastąpieniu -x polskim -ks (sposób I), albo na zachowaniu końcówki -x (sposób II):
+
+I sposób: M: Linux, D: Linuksa, C: Linuksowi, B: Linuksa, N: Linuksem, Msc: Linuksie, W: Linuksie!
+II sposób: M: Linux, D: Linuxa, C: Linuxowi, B: Linuxa, N: Linuxem, Msc: Linuxie, W: Linuxie!
+
+Linux a GNU/Linux
+
+Część osób preferuje nazwę „GNU/Linux” zamiast samego „Linux”. Ta pierwsza jest promowana przez Free Software Foundation i Projekt GNU, gdyż sam Linux nie tworzy systemu operacyjnego – do tego potrzebne jest również tzw. środowisko userspace, które zapewnia właśnie Projekt GNU.
+
+Maskotka
+
+Maskotką i oficjalnym logo Linuksa jest uśmiechnięty pingwin Tux.
+
+Zastosowanie
+Linux stosowany jest jako podstawowy system operacyjny serwerów (w tym WWW, FTP, pocztowych, baz danych), zapór sieciowych, routerów, a także w systemach osadzonych oraz w niektórych odtwarzaczach DVD i tunerach DVB.
+Ze względu na powstanie i rozwój dystrybucji o łatwej instalacji i dużych zasobach oprogramowania, Linux znajduje również zastosowanie na rynku komputerów biurowych i domowych. Rządy kilku państw europejskich prowadzą wdrożenia Linuksa na komputerach administracji państwowej. Ponadto ze względu na bezpieczeństwo, stabilność, możliwość audytu i łatwość modyfikacji kodu źródłowego, z Linuksa korzystają agencje wywiadowcze, kontrwywiad i wojsko.
+Linux wykorzystywany jest przez niektóre banki i instytucje finansowe. Przykładowo, system notowań Wall Street oparty jest na tym systemie operacyjnym, jak i również Londyńska Giełda.
+Od 2017 roku Linux był używany we wszystkich superkomputerach z listy TOP500. Znalazł również zastosowanie w przemyśle filmowym – zarówno na serwerach, jak i stacjach roboczych. Jest najpopularniejszym systemem na komputerach wykorzystywanych do tworzenia animacji i efektów specjalnych. Z jego możliwości korzystały między innymi studia Dreamworks, Pixar czy Industrial Light & Magic.
+Również aparatura medyczna, np. tomografy komputerowe firmy GE, korzysta z systemu operacyjnego Linux. Popularne punkty dostępu sygnału Wi-Fi również opierają się na uproszczonym jądrze Linuksa i procesorach ARM, coraz częściej pojawiają się też telefony komórkowe z tym systemem.
+System Linux ma również zastosowanie w nawigacji GPS, np. firma TomTom opiera działanie swoich urządzeń na tym oprogramowaniu.
+Wiele dekoderów telewizji satelitarnej i naziemnej działa pod kontrolą systemu Linux.
+Zasadniczo obecnie (2013) sprzedaż smartfonów z Androidem (opartym na Linuksie) dominuje na rynku wobec innych, a co najmniej co trzeci zaawansowany telefon na świecie posiada system oparty na Linuksie. Liczba urządzeń (tylko telefony i tablety) z samym Androidem to ponad 608 milionów, podczas gdy liczba wszystkich urządzeń pod kontrolą Microsoft Windows to ok. 1,5 miliarda. Do urządzeń z Linuksem trzeba dodać serwery, komputery osobiste oraz zapowiedziane i wykonane migracje szkół i administracji – np. w Federacji Rosyjskiej.
+
+System dla zwykłego użytkownika
+
+Największy udziałowiec rynku systemów operacyjnych od kwietnia 2017 r., gdy pozycję tę objął Android (oparty na Linuxie).
+Linux jest także najpopularniejszym systemem operacyjnym używanym na serwerach w Internecie, co oznacza, że komputer użytkownika, nawet jeśli pracuje pod innym systemem operacyjnym, to z dużym prawdopodobieństwem łączy się z serwerem opartym na systemie Linux.
+System wykorzystywany jest również do codziennych zastosowań.
+
+NASA i stabilizacja
+„Migrujemy z Windowsa na Linuxa, ponieważ potrzebny jest nam stabilny i niezawodny system operacyjny.” – Keith Chuvala, zarządca systemów komputerowych NASA.
+W 2013 roku NASA (agencja USA, dotychczas korzystająca z komercyjnego, amerykańskiego Microsoft Windows na maszynach używanych przez astronautów) ogłosiła zainstalowanie we wszystkich komputerach znajdujących się na Międzynarodowej Stacji Kosmicznej Linuksa. Powodem były problemy ze stabilnością Microsoft Windows oraz chęć większej kontroli nad systemem.
+
+Domy maklerskie i GPW
+W 2013 roku Giełda Papierów Wartościowych w Warszawie przeszła na system UTP (na bazie Red Hat Enterprise Linux). Oznacza to dodatkowo, że nie tylko największe giełdy (system UTP wykorzystuje m.in. NYSE) na świecie, ale również wszystkie domy maklerskie w Polsce używają systemu Linux.
+
+Oprogramowanie
+Programy dystrybuowane są zazwyczaj w formie gotowych (skompilowanych) pakietów binarnych dla danej dystrybucji (np. RPM i deb) lub jako pakiety źródłowe (spakowany kod źródłowy, w takich formatach jak tar.bz2, tar.gz, SRPM), które należy najpierw skompilować, a następnie zainstalować. W niektórych dystrybucjach (np. Gentoo) proces kompilacji źródeł jest wysoce zautomatyzowany. Sama forma dystrybuowanego oprogramowania zwykle jest związana z określoną formą dystrybucji. Najprostsza forma to gotowe pakiety binarne pochodzące z repozytorium.
+
+Gry na Linux
+W 2018 roku, na wykorzystującym zmodyfikowaną wersję jądra Linuxa Androidzie, w sklepie Google Play było dostępnych ponad 192 187 aplikacji, z czego 15,5% stanowiły gry. Sama liczba pobrań aplikacji przekraczała 34 294 603 185. Jeśli chodzi o pozostałe dystrybucje Linuxa, to przykładowo 10 na 25 gier w „Popularnych” (ang. Popular) serwisu GOG.com miało wersję na Linuxa. W serwisie Steam było 2970 gier z potwierdzonym działaniem na Linuksie. Istnieją także inne katalogi gier. Popularne silniki gier bądź biblioteki multimedialne do tworzenia gier pozwalają tworzyć duże i mniejsze produkcje na Linuxa – jak np. Unity czy SDL.
+Zdecydowanie większość gier jest wydana na systemy operacyjne Windows, lecz istnieją projekty pozwalające uruchamiać gry z systemu Microsoftu na Linuksie. Są to m.in. Lutris, PlayOnLinux, Wine, oraz ogólnodostępną dystrybucję Linuksa stworzonego przez Valve Software, czyli SteamOS. Firma Valve ogłosiła również wspomożenie wolnościowych systemów operacyjnych, z tego powodu wszystkie produkty ich firmy obsługują systemy GNU/Linux. Dodatkowo stworzyła ona zmodyfikowaną wersję Wine – Proton, umożliwiającą granie w gry natywne dla Windowsa znajdujące się w bibliotece Steam.
+Najstarsza uniwersalna wyszukiwarka opisów gier, w rankingu liczby gier na lata 2010–2018 podaje dla Linuxa 11 369 tytułów, podczas gdy dla konkurencyjnych platform jest ich co najmniej kilkakrotnie mniej.
+Linux współcześnie obsługuje też bez dodatków zazwyczaj więcej kontrolerów niż wiele znanych systemów. Nie tylko nadal wspiera tzw. GamePort, ale również najnowsze kontrolery Sony. Dzieje się tak dlatego, że większość sterowników jest już wbudowanych w jądro, zaś użytkownicy, którzy chcą oszczędzać na zasobach, mogą usunąć lub zmodyfikować nieprzydatne dla nich funkcjonalności.
+
+Kwestie prawne
+Oprogramowanie dla Linuksa jest najczęściej otwarte i wolne. Duża część kodu typowej dystrybucji jest objęta takimi licencjami jak GPL, LGPL, BSD i podobnymi.
+Linux jest zastrzeżonym znakiem towarowym należącym do Linusa Torvaldsa. Prawa do niego są udzielane przez Linux Foundation.
+
+Interfejs
+
+Interfejs wiersza poleceń
+
+Linux zawiera interfejs wiersza poleceń (CLI) jako część funkcji przejętych z Uniksa. Dystrybucje wyspecjalizowane na serwery lub administrację mogą używać wiersza poleceń jako jedynego interfejsu. Nieobecność interfejsu graficznego (GUI) pozwala na zminimalizowanie wykorzystywanych zasobów systemowych. Maszyny z Linuksem mogą równie dobrze działać bez podłączonego monitora. Aby administrator mógł się na nich zalogować, potrzeba albo zdalnego X11, albo terminal musi być uruchomiony z protokołu takiego, jak SSH lub telnet. W sieciach lokalnych zdalne używanie X11 jest przeważnie akceptowalne, ale na dłuższe dystanse operacje te mogą zajmować za dużo czasu. Innym sposobem na zarządzanie systemem bez urządzeń HID (Human Interface Device) i sieci jest terminal podłączany przez port szeregowy – głównie służący do debugowania i diagnostyki urządzeń wbudowanych.
+Na początku wiele operacji wykonywanych w Linuksie wymagało użycia wiersza poleceń. Rozwój dystrybucji przeznaczonych na komputery biurkowe i domowe zmienił ten stan rzeczy. Mimo wszystko, wiele podręczników i tutoriali często podaje możliwość rozwiązania problemu z wiersza poleceń, nawet gdy można to zrobić, używając aplikacji graficznej. Wiersz poleceń jest uniwersalny w świecie Linuksa, gdzie graficzny interfejs na każdej maszynie może być inny. To również ułatwia współpracę między Linuksem i innymi maszynami, które również używają wiersza poleceń, np. MacOS X. Łatwiej jest również udzielić pomocy, gdy operacja ta sprowadza się do napisania/skopiowania tego, co należy wkleić do terminala.
+Dobrze zaprojektowane GUI jest łatwiejsze w użyciu dla większości zadań, lecz bardziej doświadczeni użytkownicy mogą wciąż preferować linię komend; naukowcy, inżynierowie i twórcy oprogramowania najczęściej używają właśnie terminala. Wiele ważnych programów nie ma GUI. Wiersz poleceń jest wyposażony w automat, pozwalający na kilkukrotne lub opóźnione wypełnianie zadań i naturalnym procesem jest to, że komenda wykonująca pewne zadanie jest wpierw wydawana bezpośrednio, a potem używana ponownie w skrypcie, zapewniając automatyzację.
+
+Graficzny i tekstowy interfejs mogą również nawzajem się uzupełniać. Jest wiele graficznych emulatorów terminali, np. xterm, rxvt, aterm, Gnome-terminal i konsole. X11 potrafi zapewnić komunikację między tymi programami a wierszem poleceń. Co więcej, XFCE, KDE oraz GNOME oferują narzędzie D-BUS, które zapewnia większą integrację aplikacji graficznych z terminalem.
+
+Interfejs graficzny
+Graficzny interfejs użytkownika GUI nie jest w Linuksie integralną częścią systemu operacyjnego, lecz dodatkowym zbiorem programów. W zależności od stopnia zaawansowania i integracji użytych rozwiązań, dostępne GUI możemy podzielić na małe menedżery okien oraz duże środowiska graficzne.
+
+Małe menedżery okien
+Jedna z opcji GUI dla Linuksa jest osobnym menedżerem okien, takim jak Fluxbox, dwm, awesome i te menedżery mogą mieć zestaw najróżniejszych aplikacji, uruchamianych za pomocą Menedżera Okien bądź programów takich jak dmenu. Menedżer okien pozwala na kontrolowanie położenia i wyglądu okien indywidualnych aplikacji oraz na interakcję z X Window System.
+
+Wadą niezależnych menedżerów okien jest trudność w uzyskaniu spójnych i jednolitych interfejsów różnych aplikacji. Przedstawione zrzuty ekranów przedstawiają XMMS, RealPlayer, Mozilla Firefox, xterm, gaim i Konqueror; każdy z nich prezentuje się inaczej, ponadto, aplikacje te korzystają z odrębnych skrótów klawiszowych, inaczej organizują swoje menu, posiadają inne mechanizmy kopiowania i wklejania. Nawet jeśli każda aplikacja z osobna jest dobrze dopracowana, to używanie ich wszystkich w grupie jest utrudnione, gdyż zachowania, których nauczymy się w jednej aplikacji, zazwyczaj dają się zastosować tylko w niej.
+Zaletą korzystania z niezależnego menedżera okien jest prostota (z punktu widzenia programistów i doświadczonych użytkowników) oraz szybkość i niezawodność ich działania. Ponadto w porównaniu z dużymi środowiskami graficznymi takimi jak GNOME lub KDE, niezależne menedżery w mniejszym stopniu angażują zasoby takie jak procesor, pamięć i miejsce na dysku twardym. Użytkownicy, którzy preferują pracę w terminalu, chętnie pracują w minimalistycznych środowiskach graficznych; menedżer okien, sam w sobie, ma im przede wszystkim zapewnić możliwość otwierania okien emulatorów terminali komputerowych.
+Są też menedżery okien bazowane na wl-roots, które oparte są na Waylandzie, takie jak: Sway, dwl (dwm dla wayland) lub Qtile (też dostępne na X).
+
+Środowiska graficzne
+
+Używanie małych menedżerów okien staje się coraz mniej popularne wraz ze wzrostem większych środowisk graficznych. Są to zintegrowane sposoby na wygodną pracę, które starają się zapewnić interfejs równie łatwy w obsłudze, jak ten z MacOS X lub Microsoft Windows. Łączą one menedżer okien z pakietem standardowych aplikacji, które są łatwe w obsłudze nawet z punktu widzenia początkujących użytkowników.
+Jednym z pierwszych rozpowszechnionych środowisk graficznych było CDE, które nie stało się popularne na Linuksie ze względu na koszty i ograniczenia licencyjne. W 1996 powstało KDE, a po nim, w 1997 roku, GNOME. Xfce jest trochę mniejszym projektem, który również powstał w 1997 i skupia się na szybkości i możliwości konfiguracji.
+Obecnie rozwiązaniami dominującymi są GNOME i KDE, zazwyczaj instaluje się je standardowo na systemach linuksowych. Każde z nich oferuje m.in.:
+
+dla programistów m.in. zestaw standardowych API oraz środowisko programistyczne,
+dostępność w wielu językach i wsparcie dla tłumaczy,
+kompletne środowisko graficzne z zestawem potrzebnych aplikacji, takich jak menedżer plików, przeglądarka internetowa, odtwarzacz multimediów, klient poczty elektronicznej, książka adresowa, przeglądarka dokumentów PDF, menedżer fotografii,
+możliwość dostosowania systemu do swoich potrzeb.
+
+Mimo iż oba te środowiska graficzne mają podobne cele, radzą sobie z nimi całkiem inaczej. KDE stara się, aby aplikacje były jak najbardziej konfigurowalne, aby można było w nie ingerować i aby mogły ze sobą w łatwy sposób kooperować. GNOME z drugiej strony, koncentrując się na kluczowych zadaniach (zgodnie z filozofią making things just work), stara się, aby całość była jak najprostsza w obsłudze. Każde z tych środowisk przyciąga inny rodzaj użytkowników i tworzy inną społeczność deweloperów.
+Na początku XXI wieku oba te środowiska są już dojrzałe. Projekty Appeal i ToPaZ skupiają się na opracowywaniu nowych możliwości dla kolejnych edycji KDE i GNOME.
+Następujące środowiska graficzne są kompatybilne z Wayland:
+
+KDE Plasma
+GNOME
+COSMIC
+xfce (Prowadzone są prace nad wsparciem Wayland)
+
+Dystrybucje (niektóre)
+
+Binarne
+Arch Linux
+Ubuntu
+Debian
+Fedora
+Void Linux
+Manjaro
+Raspberry Pi OS
+Linux Mint
+Slackware
+SUSE Linux
+Red Hat Enterprise Linux
+
+Niebinarne (samodzielna kompilacja)
+Gentoo
+KISS Linux
+Linux From Scratch (użytkownik sam tworzy dystrybucję, czy to binarną czy niebinarną)
