@@ -14,7 +14,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from pathlib import Path
 
-import fitz  # pymupdf
+import pymupdf
 import numpy as np
 
 from nlp_pl import analyze_text, detect_language
@@ -49,7 +49,7 @@ class Document:
 
 def extract_text(data: bytes, suffix: str) -> str:
     if suffix == ".pdf":
-        with fitz.open(stream=data, filetype="pdf") as pdf:
+        with pymupdf.open(stream=data, filetype="pdf") as pdf:
             text = "\n".join(page.get_text() for page in pdf)
         # w PDF każda linia kończy się \n - sklejam linie w akapity
         text = re.sub(r"-\n(?=[a-ząćęłńóśźż])", "", text)   # przeniesione wyrazy
