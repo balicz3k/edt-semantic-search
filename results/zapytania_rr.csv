@@ -1,0 +1,40 @@
+rodzaj,zapytanie,metoda,RR,top-3
+dosłowne,fotosynteza,Słowa kluczowe,1.0,Fotosynteza
+dosłowne,fotosynteza,TF-IDF,1.0,Fotosynteza
+dosłowne,fotosynteza,Semantyczne,1.0,"Fotosynteza, Kwas_deoksyrybonukleinowy, Morze_Bałtyckie"
+dosłowne,NATO,Słowa kluczowe,1.0,"NATO, Kraków"
+dosłowne,NATO,TF-IDF,1.0,"NATO, Kraków"
+dosłowne,NATO,Semantyczne,1.0,"NATO, Unia_Europejska, Morze_Bałtyckie"
+dosłowne,skoki narciarskie,Słowa kluczowe,1.0,Adam_Małysz
+dosłowne,skoki narciarskie,TF-IDF,1.0,Adam_Małysz
+dosłowne,skoki narciarskie,Semantyczne,1.0,"Adam_Małysz, Tour_de_Pologne, Tatry"
+parafraza,zryw przeciw Niemcom w stolicy w 1944,Słowa kluczowe,1.0,"Powstanie_warszawskie, Warszawa, Fryderyk_Chopin"
+parafraza,zryw przeciw Niemcom w stolicy w 1944,TF-IDF,1.0,"Powstanie_warszawskie, Warszawa, Kraków"
+parafraza,zryw przeciw Niemcom w stolicy w 1944,Semantyczne,0.5,"Warszawa, Powstanie_warszawskie, Chrzest_Polski"
+parafraza,"maszyny, które same się uczą",Słowa kluczowe,1.0,"Sztuczna_inteligencja, Chrzest_Polski, Linux"
+parafraza,"maszyny, które same się uczą",TF-IDF,1.0,"Uczenie_maszynowe, Sztuczna_inteligencja, Politechnika_Krakowska_im_Tadeusza_Kościuszki"
+parafraza,"maszyny, które same się uczą",Semantyczne,1.0,"Uczenie_maszynowe, Sztuczna_inteligencja, Linux"
+parafraza,epopeja narodowa o szlachcie na Litwie,Słowa kluczowe,1.0,"Pan_Tadeusz, Unia_lubelska, Konstytucja_3_maja"
+parafraza,epopeja narodowa o szlachcie na Litwie,TF-IDF,1.0,"Pan_Tadeusz, Unia_lubelska, Adam_Mickiewicz"
+parafraza,epopeja narodowa o szlachcie na Litwie,Semantyczne,1.0,"Pan_Tadeusz, Adam_Mickiewicz, Chrzest_Polski"
+parafraza,najwyższe góry w Polsce,Słowa kluczowe,1.0,"Tatry, Kraków, Konstytucja_3_maja"
+parafraza,najwyższe góry w Polsce,TF-IDF,1.0,"Tatry, Wisła, Tour_de_Pologne"
+parafraza,najwyższe góry w Polsce,Semantyczne,1.0,"Tatry, Wisła, Kraków"
+parafraza,pisarz science fiction,Słowa kluczowe,1.0,"Stanisław_Lem, Adam_Mickiewicz, Andrzej_Wajda"
+parafraza,pisarz science fiction,TF-IDF,1.0,"Stanisław_Lem, Wisława_Szymborska, Andrzej_Wajda"
+parafraza,pisarz science fiction,Semantyczne,1.0,"Stanisław_Lem, Maria_Skłodowska_Curie, Python"
+parafraza,sojusz wojskowy państw zachodnich,Słowa kluczowe,1.0,"NATO, Unia_Europejska, Bitwa_pod_Grunwaldem"
+parafraza,sojusz wojskowy państw zachodnich,TF-IDF,1.0,"NATO, Bitwa_pod_Grunwaldem, Chrzest_Polski"
+parafraza,sojusz wojskowy państw zachodnich,Semantyczne,1.0,"NATO, Niezależny_Samorządny_Związek_Zawodowy_Solidarność, Unia_Europejska"
+odmiana,Krzyżacy,Słowa kluczowe,1.0,Bitwa_pod_Grunwaldem
+odmiana,Krzyżacy,TF-IDF,0.0,
+odmiana,Krzyżacy,Semantyczne,1.0,"Bitwa_pod_Grunwaldem, Pan_Tadeusz, Chrzest_Polski"
+odmiana,polska noblistka,Słowa kluczowe,1.0,"Maria_Skłodowska_Curie, Bitwa_pod_Grunwaldem, Konstytucja_3_maja"
+odmiana,polska noblistka,TF-IDF,1.0,"Wisława_Szymborska, Maria_Skłodowska_Curie, Unia_lubelska"
+odmiana,polska noblistka,Semantyczne,1.0,"Wisława_Szymborska, Maria_Skłodowska_Curie, Chrzest_Polski"
+wieloznaczne,unia,Słowa kluczowe,1.0,"Unia_Europejska, Unia_lubelska, Sztuczna_inteligencja"
+wieloznaczne,unia,TF-IDF,1.0,"Unia_lubelska, Unia_Europejska, Bitwa_pod_Grunwaldem"
+wieloznaczne,unia,Semantyczne,1.0,"Unia_Europejska, Unia_lubelska, NATO"
+wieloznaczne,Wisła,Słowa kluczowe,1.0,"Wisła, Adam_Małysz, Morze_Bałtyckie"
+wieloznaczne,Wisła,TF-IDF,1.0,"Wisła, Kraków, Warszawa"
+wieloznaczne,Wisła,Semantyczne,1.0,"Wisła, Warszawa, Kraków"

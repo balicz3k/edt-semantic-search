@@ -1,0 +1,4 @@
+para metod,Spearman,Kendall tau,Jaccard@5
+Słowa kluczowe - Semantyczne,0.3209,0.2626,0.2815
+Słowa kluczowe - TF-IDF,0.5195,0.4694,0.5178
+TF-IDF - Semantyczne,0.4281,0.3367,0.3357
