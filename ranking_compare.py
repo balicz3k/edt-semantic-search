@@ -30,6 +30,7 @@ def positions_table(rankings: dict[str, list[str]], names: dict[str, str], k: in
         rows.append(row)
     table = pd.DataFrame(rows)
     if not table.empty:
+        table[list(rankings)] = table[list(rankings)].astype(float)  # None -> NaN
         best = table[list(rankings)].fillna(k + 1).min(axis=1)
         table = table.assign(_best=best).sort_values(["_best", "rozrzut"]).drop(columns="_best")
     return table.reset_index(drop=True)
