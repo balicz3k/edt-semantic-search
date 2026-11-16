@@ -15,7 +15,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from document_store import Document, DocumentStore
-from nlp_pl import lemmatize_query
+from nlp_pl import PL_STOP, lemmatize_query
 
 # model wielojęzyczny - dobrze radzi sobie z polskim (all-MiniLM-L6-v2 zna tylko angielski)
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -45,7 +45,8 @@ def parse_query(query: str) -> list[str]:
     """Frazy w cudzysłowie traktuję jako całość, resztę dzielę na słowa."""
     phrases = [p.strip().lower() for p in re.findall(r'"([^"]+)"', query) if p.strip()]
     rest = re.sub(r'"[^"]*"', " ", query)
-    words = [w.lower() for w in re.findall(r"\w+", rest) if len(w) > 1]
+    # pojedyncze słowa ze stoplisty ("nad", "w") pomijam - pasowałyby do każdego tekstu
+    words = [w.lower() for w in re.findall(r"\w+", rest) if len(w) > 1 and w.lower() not in PL_STOP]
     return phrases + words
 
 

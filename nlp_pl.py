@@ -8,7 +8,7 @@ from functools import lru_cache
 
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS as EN_STOP
-from spacy.lang.pl.stop_words import STOP_WORDS as PL_STOP
+from spacy.lang.pl.stop_words import STOP_WORDS as PL_STOP  # noqa: F401 (używane też w search_engine)
 
 SPACY_MODEL = "pl_core_news_md"
 MAX_SPACY_CHARS = 100_000   # dłuższy tekst dzielę na części (limit pamięci spaCy)
